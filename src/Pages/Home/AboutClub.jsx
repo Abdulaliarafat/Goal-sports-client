@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const AboutClub = () => {
   return (
-    <section className="bg-green-50 py-12 px-5 mx-4 md:px-10  my-15">
+    <section className="bg-green-50  px-5  md:px-10  py-15">
       <div className="max-w-5xl mx-auto">
 
         {/* ✅ Section Title */}
@@ -38,7 +38,7 @@ const AboutClub = () => {
           <h3 className="text-xl font-semibold text-green-700 mb-2">Mission</h3>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li>Promote health and fitness through active sports.</li>
-            <li>Create an inclusive space for all ages and genders.</li>
+            <li>Create an inclusive space for all ages only boys.</li>
             <li>Offer professional-grade sports facilities in Sylhet.</li>
             <li>Encourage youth participation in physical activities.</li>
             <li>Build a supportive sports community in Bangladesh.</li>

@@ -7,7 +7,7 @@ const promotions = [
   { code: 'ACE20', name: 'Ace Shot', discount: 20, quantity: 3 },
   { code: 'DRIBBLE7', name: 'Dribble Deal', discount: 7, quantity: 8 },
   { code: 'SLAM8', name: 'Slam Dunk', discount: 8, quantity: 6 },
-  { code: 'NET9', name: 'Net Gain', discount: 9, quantity: 4 },
+  { code: 'NETTT9', name: 'Net Gain', discount: 9, quantity: 4 },
   { code: 'TURF12', name: 'Turf Time', discount: 12, quantity: 9 },
   { code: 'POWER6', name: 'Power Play', discount: 6, quantity: 5 },
   { code: 'SMASH11', name: 'Smash Serve', discount: 11, quantity: 2 },
@@ -15,7 +15,7 @@ const promotions = [
 
 const Promotions = () => {
   return (
-    <section className="bg-gradient-to-r from-green-100 to-green-50 py-12 px-4 md:px-10 my-10">
+    <section className="bg-green-50   px-4 md:px-10 py-20">
       <div className="max-w-6xl mx-auto text-center">
 
         {/* ✅ Title */}
@@ -29,7 +29,7 @@ const Promotions = () => {
         </motion.h2>
 
         {/* ✅ 10 Promotions in a Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 py-20">
           {promotions.map((promo, index) => (
             <motion.div
               key={promo.code}

@@ -15,7 +15,7 @@ const Location = () => {
   const position = [24.8917, 91.8700]; // Sylhet coordinate
 
   return (
-    <section className="bg-green-50 py-12 px-4 md:px-10 my-15">
+    <section className="bg-green-50  px-4 md:px-10 py-15">
       <div className="max-w-5xl mx-auto">
 
         {/* ✅ Heading */}

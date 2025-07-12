@@ -5,19 +5,19 @@ import logo from '.././assets/download.jpeg'
 import useAuth from '../Hook/useAuth';
 
 const Navbar = () => {
-    const { user,logOut} = useAuth(); // ✅ 1. Destructure user and logout from auth
+    const { user, logOut } = useAuth(); // ✅ 1. Destructure user and logout from auth
     const [isDropdownOpen, setIsDropdownOpen] = useState(false); // ✅ 2. Local state for dropdown
 
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen); // ✅ 3. Toggle dropdown
- const handleLogout=()=>{
-     logOut()
-     .then(result=>{
-        console.log(result)
-     })
-     .catch(error=>{
-        console.log(error)
-     })
- }
+    const handleLogout = () => {
+        logOut()
+            .then(result => {
+                console.log(result)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
     return (
         <div className="bg-green-200 shadow-md ">
             <div className="navbar max-w-6xl mx-auto px-4 py-3 justify-between items-center">
@@ -30,8 +30,26 @@ const Navbar = () => {
 
                 {/* ✅ 5. Nav Links */}
                 <div className="flex items-center gap-4">
-                    <NavLink to="/" className="hover:text-green-700 font-medium">Home</NavLink>
-                    <NavLink to="/courts" className="hover:text-green-700 font-medium">Courts</NavLink>
+                    <div className='mr-20 '>
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                `font-medium mr-4 ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
+                            }
+                        >
+                            Home
+                        </NavLink>
+
+                        <NavLink
+                            to="/courts"
+                            className={({ isActive }) =>
+                                `font-medium  ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
+                            }
+                        >
+                            Courts
+                        </NavLink>
+
+                    </div>
 
                     {/* ✅ 6. Show profile if logged in */}
                     {user ? (
@@ -56,7 +74,15 @@ const Navbar = () => {
                                     </div>
                                     <ul className="menu menu-sm">
                                         <li>
-                                            <Link to="/dashboard" className="hover:bg-green-200 text-md">Dashboard</Link>
+                                            <Link
+                                              to="/dashboard"
+                                                className={({ isActive }) =>
+                                                    `font-medium ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : 'hover:bg-green-600 hover:text-white'}`
+                                                }
+                                            >
+                                                Dashboard
+                                            </Link>
+                                           
                                         </li>
                                         <li>
                                             <button onClick={handleLogout} className="hover:bg-green-200 w-full text-left font-bold text-red-600 text-md">

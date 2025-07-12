@@ -9,7 +9,7 @@ const Footer = () => {
   const { user } = useAuth(); // ✅ 1. Check if user is logged in for conditional link
 
   return (
-    <footer className="bg-green-50 border-t border-green-100 text-gray-800 py-10">
+    <footer className="bg-green-100 border-t border-green-100 text-gray-800 py-10">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
 
         {/* ✅ Left: Address Info */}
