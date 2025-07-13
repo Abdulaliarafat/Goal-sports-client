@@ -3,7 +3,7 @@ import React from 'react';
 import useAuth from './useAuth';
 import { useNavigate } from 'react-router';
 const axiosSecure = axios.create({
-    baseURL: 'https://zap-shift-server-five.vercel.app'
+    baseURL: 'http://localhost:3000'
 })
 const useAxiosSecure = () => {
     const { user,logOut } = useAuth()
@@ -15,25 +15,25 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
     })
 
-    axiosSecure.interceptors.response.use(res => {
-        return res
-    }, error => {
-        console.log('inside res interceptor', error.status)
-        const status = error.status
-        if (status === 403) {
-          navigate('/forbedden')
-        }
-        else if(status === 401){
-            logOut()
-            .then(()=>{
-            navigate('/login')
-            })
-            .catch(()=>{
+    // axiosSecure.interceptors.response.use(res => {
+    //     return res
+    // }, error => {
+    //     console.log('inside res interceptor', error.status)
+    //     const status = error.status
+    //     if (status === 403) {
+    //       navigate('/forbedden')
+    //     }
+    //     else if(status === 401){
+    //         logOut()
+    //         .then(()=>{
+    //         navigate('/login')
+    //         })
+    //         .catch(()=>{
 
-            })
-        }
-        return Promise.reject(error)
-    })
+    //         })
+    //     }
+    //     return Promise.reject(error)
+    // })
 
 
     return axiosSecure

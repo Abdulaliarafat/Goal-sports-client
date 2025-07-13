@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import {NavLink} from 'react-router';
 import { FaFacebookF, FaInstagram, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 import useAuth from '../Hook/useAuth';
 import Lottie from 'lottie-react';
@@ -25,13 +25,44 @@ const Footer = () => {
         {/* ✅ Middle: Navigation Links */}
         <div className="flex flex-col gap-2">
           <h3 className="text-lg font-semibold mb-2 text-green-800">Quick Links</h3>
-          <Link to="/" className="hover:text-green-600 transition-all">Home</Link>
-          <Link to="/courts" className="hover:text-green-600 transition-all">Courts</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `transition-all hover:text-green-600 ${isActive ? ' underline rounded' : ''}`
+            }
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/courts"
+            className={({ isActive }) =>
+              `transition-all hover:text-green-600 ${isActive ? 'underline rounded' : ''}`
+            }
+          >
+            Courts
+          </NavLink>
+
           {user ? (
-            <Link to="/dashboard" className="hover:text-green-600 transition-all">dashboard</Link>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                `transition-all hover:text-green-600 ${isActive ? 'underline rounded' : ''}`
+              }
+            >
+              Dashboard
+            </NavLink>
           ) : (
-            <Link to="/login" className="hover:text-green-600 transition-all">Login</Link>
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `transition-all hover:text-green-600 ${isActive ? 'underline rounded' : ''}`
+              }
+            >
+              Login
+            </NavLink>
           )}
+
         </div>
 
         {/* ✅ Right: Social Icons */}
@@ -59,7 +90,7 @@ const Footer = () => {
               <FaXTwitter />
             </a>
           </div>
-          <Lottie  animationData={animationData}></Lottie>
+          <Lottie animationData={animationData}></Lottie>
         </div>
 
       </div>

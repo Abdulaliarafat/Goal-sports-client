@@ -6,6 +6,9 @@ import AuthLayout from "../Layout/AuthLayout";
 import LogIn from "../Authentication/Login/LogIn";
 import Register from "../Authentication/Register/Register";
 import Loading from "../SharedPage/Loading";
+import CourtsPage from "../Pages/CourtsPage/CourtsPage";
+import PrivateRoutes from "../Context/ProtectecdRoutes/PrivateRoutes";
+import DashBoardLayout from "../Layout/DashBoardLayout";
 
 export const router = createBrowserRouter([
     {
@@ -14,7 +17,11 @@ export const router = createBrowserRouter([
         ErrorBoundary:Error,
         hydrateFallbackElement:<Loading></Loading>,
         children:[
-            {index:true,Component:Home}
+            {index:true,Component:Home},
+            {
+              path:'courtsPage',
+              Component:CourtsPage
+            }
         ]
     },
     {
@@ -30,5 +37,14 @@ export const router = createBrowserRouter([
         Component: Register
       }
     ]
+  },
+  {
+    path:'/dashboard',
+    element:<PrivateRoutes>
+      <DashBoardLayout></DashBoardLayout>
+      </PrivateRoutes>,
+      children:[
+        {}
+      ]
   }
 ]);

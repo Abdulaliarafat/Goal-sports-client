@@ -10,6 +10,8 @@ import football from '../../../assets/football.jpg';
 import badminton from '../../../assets/badminton.jpg';
 import squish from '../../../assets/squash.jpg';
 import tableTanis from '../../../assets/table-tennis-1208378_960_720.jpg';
+import hockey from '../../../assets/hocky.jpg';
+import basketball from '../../../assets/basketball.jpg';
 
 // ✅ 1. Courts data
 const courts = [
@@ -37,7 +39,20 @@ const courts = [
         img: tableTanis,
         description: 'Perfect your spin and rally in our competitive table tennis zone.',
     },
+    {
+        id: 5,
+        title: 'Hockey Rink',
+        img: hockey,
+        description: 'Experience the speed and power of the game on our smooth hockey rink.',
+    },
+    {
+        id: 6,
+        title: 'Basketball Court',
+        img: basketball,
+        description: 'Score big in our full-sized indoor basketball court built for every level.',
+    },
 ];
+
 
 const Banner = () => {
     return (

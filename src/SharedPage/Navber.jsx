@@ -30,18 +30,18 @@ const Navbar = () => {
 
                 {/* ✅ 5. Nav Links */}
                 <div className="flex items-center gap-4">
-                    <div className='mr-20 '>
+                    <div className='mr-10 '>
                         <NavLink
                             to="/"
                             className={({ isActive }) =>
-                                `font-medium mr-4 ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
+                                `font-normal mr-4 ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
                             }
                         >
                             Home
                         </NavLink>
 
                         <NavLink
-                            to="/courts"
+                            to="/courtsPage"
                             className={({ isActive }) =>
                                 `font-medium  ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
                             }
@@ -74,18 +74,18 @@ const Navbar = () => {
                                     </div>
                                     <ul className="menu menu-sm">
                                         <li>
-                                            <Link
+                                            <NavLink
                                               to="/dashboard"
                                                 className={({ isActive }) =>
                                                     `font-medium ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : 'hover:bg-green-600 hover:text-white'}`
                                                 }
                                             >
                                                 Dashboard
-                                            </Link>
+                                            </NavLink>
                                            
                                         </li>
                                         <li>
-                                            <button onClick={handleLogout} className="hover:bg-green-200 w-full text-left font-bold text-red-600 text-md">
+                                            <button onClick={handleLogout} className="hover:bg-green-600 w-full text-left hover:text-white font-bold text-red-600 text-md">
                                                 Logout
                                             </button>
                                         </li>
@@ -95,7 +95,7 @@ const Navbar = () => {
                         </div>
                     ) : (
                         // ✅ 9. Login link for guests
-                        <NavLink to="/login" className="btn btn-sm bg-green-700 text-white hover:bg-green-800">
+                        <NavLink to="/login" className="btn font-medium  btn-sm bg-green-700 text-white hover:bg-green-800">
                             Login
                         </NavLink>
                     )}

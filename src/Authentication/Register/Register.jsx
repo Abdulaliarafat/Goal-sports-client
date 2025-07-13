@@ -4,49 +4,69 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import axios from 'axios';
 import useAuth from '../../Hook/useAuth';
 import SocalLogIn from '../SocalLogIn/SocalLogIn';
+import useAxios from '../../Hook/useAxios';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { createUser, updateUserProfile } = useAuth()
     const [profilePic, setProfilePic] = useState('')
-    // const axiosInstance=useAxios()
+    // For registration use Hook
+    const axiosInstance = useAxios()
     const location = useLocation()
     const navigate = useNavigate()
-   const from = location.state?.from || '/';
+    const from = location.state?.from || '/';
     const onRegister = data => {
-        console.log(data)
         createUser(data.email, data.password)
-            .then(async(result) => {
+            .then(async (result) => {
+                const userInfo = {
+                    email: data.email,
+                    name: data.name,
+                    photo: profilePic,
+                    role: 'user',
+                    create_at: new Date().toISOString(),
+                    last_log_in: new Date().toISOString()
+                };
                 console.log(result)
-                // update profile info in the database
-                 const userInfo={
-                   email: data.email,
-                   role:'user',    //default role
-                   create_at:new Date().toISOString(),
-                   last_log_in:new Date().toISOString()
-                 }
-                //  const userRes= await axiosInstance.post('/users',userInfo)
-                //  console.log(userRes.data)
-                // update profilePic in firebase
 
+                const userRes = await axiosInstance.post('/users', userInfo);
+              console.log(userRes.data)
                 const userProfile = {
                     displayName: data.name,
                     photoURL: profilePic
-                }
-                updateUserProfile(userProfile)
-                .then(()=>{
-                    console.log('profile name pic update')
-                    navigate(from)
-                })
-                .catch(error=>{
-                    console.log(error)
-                })
+                };
 
+                updateUserProfile(userProfile)
+                    .then(() => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Account Created!',
+                            text: 'Your registration was successful.',
+                            confirmButtonColor: '#166534', // Tailwind green-700
+                        });
+                        navigate(from);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Profile Update Failed',
+                            text: error.message,
+                            confirmButtonColor: '#b91c1c', // Tailwind red-700
+                        });
+                    });
             })
             .catch(error => {
-                console.log(error)
-            })
-    }
+                console.log(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Registration Failed',
+                    text: error.message,
+                    confirmButtonColor: '#b91c1c',
+                });
+            });
+    };
+
     const handleImageUpload = async (e) => {
         const image = e.target.files[0]
         console.log(image)
@@ -103,7 +123,7 @@ const Register = () => {
                     <div><a className="link link-hover font-bold text-md mt-2">Forgot password?</a></div>
                     <button className="btn bg-green-700 text-white mt-2">Register</button>
                 </fieldset>
-                <p><small>Already have account <Link  className='text-red-400  btn btn-link -ml-3 ' to='/login'>LogIn</Link></small></p>
+                <p><small>Already have account <Link className='text-red-400  btn btn-link -ml-3 ' to='/login'>LogIn</Link></small></p>
             </form>
             <SocalLogIn></SocalLogIn>
         </div>

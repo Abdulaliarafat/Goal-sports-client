@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../Hook/useAuth';
 import SocalLogIn from '../SocalLogIn/SocalLogIn';
+import Swal from 'sweetalert2';
 
 const LogIn = () => {
     const { signIn } = useAuth()
@@ -10,17 +11,31 @@ const LogIn = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from || '/';
-    const onsubmit = data => {
-        console.log(data)
-        signIn(data.email, data.password)
-            .then(result => {
-                console.log(result)
-                navigate(from)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
+   const onsubmit = data => {
+  signIn(data.email, data.password)
+    .then(result => {
+      console.log(result);
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Successful!',
+        text: `Welcome back, ${result.user.displayName || 'User'}!`,
+        confirmButtonColor: '#166534', // Tailwind green-700
+        timer: 2000,
+        showConfirmButton: false
+      });
+      navigate(from, { replace: true });
+    })
+    .catch(error => {
+      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Login Failed',
+        text: error.message,
+        confirmButtonColor: '#b91c1c', // Tailwind red-700
+      });
+    });
+};
+
     return (
         <div className='bg-green-100  p-6  shadow-2xl'>
             <form onSubmit={handleSubmit(onsubmit)}>
