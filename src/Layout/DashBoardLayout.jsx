@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router';
+import { Link, NavLink, Outlet } from 'react-router';
 import useUserRole from '../Hook/useUserRole';
-import { FaHourglassHalf} from 'react-icons/fa';
-
+import { FaHome, FaHourglassHalf } from 'react-icons/fa';
+import logo from '.././assets/download.jpeg'
 
 const DashBoardLayout = () => {
     const { roleLoading, role } = useUserRole()
@@ -38,19 +38,37 @@ const DashBoardLayout = () => {
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+                    <Link to="/" className="flex items-center gap-2 text-green-800 font-bold text-3xl mx-auto ">
+                        <img src={logo} alt="Goal" className="w-15 h-15 border-3 border-green-500 rounded-full mb-3" />
+                        <span>Goal</span>
+                    </Link>
+                    <div className='border-2  bg-green-500 mb-5'></div>
+
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                            `flex items-center gap-2 font-medium transition-all text-green-600 text-lg duration-300 ${isActive
+                                ? 'text-green-600 underline underline-offset-4'
+                                : 'hover:text-green-600'
+                            }`
+                        }
+                    >
+                        <FaHome size={25} className="text-green-500" />
+                        Home
+                    </NavLink>
 
                     {!roleLoading && role === "admin" &&
                         <>
                             <NavLink
                                 to="/dashboard/pendingBooking"
                                 className={({ isActive }) =>
-                                    `flex items-center gap-2 font-medium transition-all duration-300 ${isActive
+                                    `flex items-center mt-2 gap-2 font-medium transition-all text-lg text-green-600 text-md duration-300 ${isActive
                                         ? 'text-green-600 underline underline-offset-4'
                                         : 'hover:text-green-600'
                                     }`
                                 }
                             >
-                                <FaHourglassHalf className="text-orange-500" />
+                                <FaHourglassHalf size={25} className="text-orange-500" />
                                 Pending Booking
                             </NavLink>
 

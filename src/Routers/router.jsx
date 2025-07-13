@@ -12,6 +12,7 @@ import DashBoardLayout from "../Layout/DashBoardLayout";
 import PendingBooking from "../Pages/DashBoard/AdminDashboard/PendingBooking";
 import Forbidden from "../SharedPage/Forbedden";
 import AdminRoutes from "../Context/ProtectecdRoutes/AdminRoutes";
+import DeashBoardHomeMain from "../Pages/DeashBoardHome/DeashBoardHomeMain";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       <DashBoardLayout></DashBoardLayout>
     </PrivateRoutes>,
     children: [
+      {
+        index: true,
+        Component: DeashBoardHomeMain
+      },
       {
         path: 'pendingBooking',
         element: <AdminRoutes><PendingBooking></PendingBooking></AdminRoutes>
