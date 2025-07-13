@@ -9,22 +9,29 @@ import Loading from "../SharedPage/Loading";
 import CourtsPage from "../Pages/CourtsPage/CourtsPage";
 import PrivateRoutes from "../Context/ProtectecdRoutes/PrivateRoutes";
 import DashBoardLayout from "../Layout/DashBoardLayout";
+import PendingBooking from "../Pages/DashBoard/AdminDashboard/PendingBooking";
+import Forbidden from "../SharedPage/Forbedden";
+import AdminRoutes from "../Context/ProtectecdRoutes/AdminRoutes";
 
 export const router = createBrowserRouter([
-    {
-        path: "/",
-        Component:Root,
-        ErrorBoundary:Error,
-        hydrateFallbackElement:<Loading></Loading>,
-        children:[
-            {index:true,Component:Home},
-            {
-              path:'courtsPage',
-              Component:CourtsPage
-            }
-        ]
-    },
-    {
+  {
+    path: "/",
+    Component: Root,
+    ErrorBoundary: Error,
+    hydrateFallbackElement: <Loading></Loading>,
+    children: [
+      { index: true, Component: Home },
+      {
+        path: 'courtsPage',
+        Component: CourtsPage
+      },
+      {
+        path: 'forbedden',
+        Component: Forbidden
+      },
+    ]
+  },
+  {
     path: '/',
     Component: AuthLayout,
     children: [
@@ -39,12 +46,15 @@ export const router = createBrowserRouter([
     ]
   },
   {
-    path:'/dashboard',
-    element:<PrivateRoutes>
+    path: '/dashboard',
+    element: <PrivateRoutes>
       <DashBoardLayout></DashBoardLayout>
-      </PrivateRoutes>,
-      children:[
-        {}
-      ]
+    </PrivateRoutes>,
+    children: [
+      {
+        path: 'pendingBooking',
+        element: <AdminRoutes><PendingBooking></PendingBooking></AdminRoutes>
+      }
+    ]
   }
 ]);

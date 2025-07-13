@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router';
 import useAuth from '../../Hook/useAuth';
 import Swal from 'sweetalert2';
 import { format } from 'date-fns';
-import useAxiosSecure from '../../Hook/useAxiosSecure';
 import { motion, AnimatePresence } from 'framer-motion';
+import useAxiosSecure from '../../Hook/useAxiosSecure';
 
 const slots = [
   '08:00 - 09:00 AM',

@@ -77,7 +77,7 @@ const Navbar = () => {
                                             <NavLink
                                               to="/dashboard"
                                                 className={({ isActive }) =>
-                                                    `font-medium ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : 'hover:bg-green-600 hover:text-white'}`
+                                                    `font-medium ${isActive ? 'bg-green-600 text-green-500 p-1.5 rounded' : 'hover:bg-green-600 hover:text-white'}`
                                                 }
                                             >
                                                 Dashboard
