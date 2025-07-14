@@ -14,6 +14,10 @@ import Forbidden from "../SharedPage/Forbedden";
 import AdminRoutes from "../Context/ProtectecdRoutes/AdminRoutes";
 import DeashBoardHomeMain from "../Pages/DeashBoardHome/DeashBoardHomeMain";
 import UserProfile from "../Pages/DashBoard/UserDashboard/UserProfile";
+import MemberProfile from "../Pages/DashBoard/MemderDashboard/MemberProfile";
+import MemberRoutes from "../Context/ProtectecdRoutes/MemberRoutes";
+import UserPendingBookings from "../Pages/DashBoard/UserDashboard/UserPendingBookings";
+import MemberPendingBookings from "../Pages/DashBoard/MemderDashboard/MemberPendingBookings";
 
 export const router = createBrowserRouter([
   {
@@ -58,9 +62,23 @@ export const router = createBrowserRouter([
         Component: DeashBoardHomeMain
       },
       {
-      path:'userProfile',
-      Component:UserProfile
+        path: 'userProfile',
+        Component: UserProfile
       },
+      {
+        path:'userPendingBookings',
+        Component:UserPendingBookings
+      },
+      // member routes
+      {
+        path: 'memberProfile',
+        element:<MemberRoutes><MemberProfile></MemberProfile></MemberRoutes>
+      },
+      {
+       path:'memberPendingBookings',
+       element:<MemberRoutes><MemberPendingBookings></MemberPendingBookings></MemberRoutes>
+      },
+      // admin routes
       {
         path: 'pendingBooking',
         element: <AdminRoutes><PendingBooking></PendingBooking></AdminRoutes>

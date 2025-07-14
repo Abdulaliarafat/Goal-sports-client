@@ -1,12 +1,12 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
-import useAuth from '../../../Hook/useAuth';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
+import useAuth from '../../../Hook/useAuth';
 import Loading from '../../../SharedPage/Loading';
 import Forbidden from '../../../SharedPage/Forbedden';
 
-const UserProfile = () => {
+const MemberProfile = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
@@ -21,7 +21,7 @@ const UserProfile = () => {
 
   if (isLoading) return <Loading></Loading>
 
-  if (userInfo.role !== 'user') {
+  if (userInfo.role !== 'member') {
     return <Forbidden></Forbidden>
   }
 
@@ -78,4 +78,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default MemberProfile;

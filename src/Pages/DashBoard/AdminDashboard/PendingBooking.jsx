@@ -41,8 +41,8 @@ const PendingBooking = () => {
 
       {/* 🖥️ Desktop & Tablet Table View */}
       <div className="hidden md:block overflow-x-auto">
-        <table className="table w-full bg-green-50 shadow-2xl">
-          <thead>
+        <table className="table w-full shadow-2xl">
+          <thead className='bg-green-100 text-green-800'>
             <tr>
               <th>User</th>
               <th>Court</th>

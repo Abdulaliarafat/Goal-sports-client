@@ -8,7 +8,7 @@ const DashBoardLayout = () => {
     const { roleLoading, role } = useUserRole()
 
     return (
-        <div className="drawer lg:drawer-open">
+        <div className="drawer lg:drawer-open bg-green-50">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col ">
                 {/* navber */}
@@ -33,19 +33,20 @@ const DashBoardLayout = () => {
                     <div className="mx-2 flex-1 px-2">Deshboard</div>
                 </div>
                 {/* Page content here */}
-              <div className='bg-green-50 md:ml-5 pb-10'> 
-                  <Outlet></Outlet>
-              </div>
+                <div>
+                    <Outlet></Outlet>
+                </div>
+
             </div>
             <div className="drawer-side ">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu bg-green-50 text-base-content min-h-full w-80 p-4">
+                <ul className="menu bg-green-100 text-base-content min-h-full w-80 p-4">
                     <Link to="/" className="flex items-center gap-2 text-green-800 font-bold text-3xl mx-auto ">
                         <img src={logo} alt="Goal" className="w-15 h-15 border-3 border-green-500 rounded-full mb-3" />
                         <span>Goal</span>
                     </Link>
                     <div className='border-2  bg-green-500 mb-5'></div>
-
+                    {/* Public  */}
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
@@ -60,42 +61,88 @@ const DashBoardLayout = () => {
                     </NavLink>
                     {!roleLoading && role === "user" &&
                         <>
-                            <NavLink
-                                to="/dashboard/userProfile"
-                                className={({ isActive }) =>
-                                    `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
-                                        ? 'text-green-600 underline underline-offset-4'
-                                        : 'hover:text-green-600 text-green-600'
-                                    }`
-                                }
-                            >
-                                <FaUserCircle size={24} className="text-blue-500" />
-                                My Profile
-                            </NavLink>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/userProfile"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaUserCircle size={24} className="text-blue-500" />
+                                    My Profile
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/userPendingBookings"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all text-lg text-green-600 text-md duration-300 ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaHourglassHalf size={25} className="text-orange-500" />
+                                    Pending Booking
+                                </NavLink>
+                            </li>
 
                         </>
                     }
 
                     {!roleLoading && role === "member" &&
                         <>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/memberProfile"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaUserCircle size={24} className="text-blue-500" />
+                                    My Profile
+                                </NavLink>
+                            </li>
+                             <li>
+                                <NavLink
+                                    to="/dashboard/memberPendingBookings"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all text-lg text-green-600 text-md duration-300 ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaHourglassHalf size={25} className="text-orange-500" />
+                                    Pending Booking
+                                </NavLink>
+                            </li>
                         </>
                     }
 
 
                     {!roleLoading && role === "admin" &&
                         <>
-                            <NavLink
-                                to="/dashboard/pendingBooking"
-                                className={({ isActive }) =>
-                                    `flex items-center mt-2 gap-2 font-medium transition-all text-lg text-green-600 text-md duration-300 ${isActive
-                                        ? 'text-green-600 underline underline-offset-4'
-                                        : 'hover:text-green-600'
-                                    }`
-                                }
-                            >
-                                <FaHourglassHalf size={25} className="text-orange-500" />
-                                Pending Booking
-                            </NavLink>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/pendingBooking"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all text-lg text-green-600 text-md duration-300 ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaHourglassHalf size={25} className="text-orange-500" />
+                                    Pending Booking
+                                </NavLink>
+                            </li>
 
                         </>
                     }
