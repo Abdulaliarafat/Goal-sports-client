@@ -48,13 +48,13 @@ const courts = [
 
 const CourtsPage = () => {
   return (
-    <div className="px-4 md:px-10 py-25 bg-green-50 min-h-screen ">
+    <div className="px-4 md:px-10 py-20 bg-green-50 min-h-screen ">
       {/* ✅ Sweet Styled Title */}
-      <div className="text-center mb-20">
+      <div className="text-center mb-15">
         <h1 className="text-3xl md:text-4xl font-extrabold text-green-800 mb-2">
           🏟️ Explore Our Premium Sports Courts
         </h1>
-        <p className="text-gray-700 text-sm md:text-base max-w-xl mx-auto">
+        <p className="text-gray-700 text-sm md:text-base max-w-xl mx-auto mt-4">
           Book your preferred court and session with ease — fitness, fun, and sports await you!
         </p>
       </div>

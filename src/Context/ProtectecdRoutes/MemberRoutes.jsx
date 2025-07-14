@@ -3,7 +3,7 @@ import useAuth from '../Hook/useAuth';
 import useUserRole from '../Hook/useUserRole';
 import { Navigate } from 'react-router';
 
-const RiderRoutes = ({children}) => {
+const MemberRoutes = ({children}) => {
      const { loading, user } = useAuth()
      const {role,roleLoading}=useUserRole()
 
@@ -21,4 +21,4 @@ const RiderRoutes = ({children}) => {
     return children
 };
 
-export default RiderRoutes;
+export default MemberRoutes;

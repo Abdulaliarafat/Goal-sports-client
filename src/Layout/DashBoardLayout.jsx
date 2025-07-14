@@ -35,9 +35,9 @@ const DashBoardLayout = () => {
                 {/* Page content here */}
                 <Outlet></Outlet>
             </div>
-            <div className="drawer-side">
+            <div className="drawer-side ">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+                <ul className="menu bg-green-50 text-base-content min-h-full w-80 p-4">
                     <Link to="/" className="flex items-center gap-2 text-green-800 font-bold text-3xl mx-auto ">
                         <img src={logo} alt="Goal" className="w-15 h-15 border-3 border-green-500 rounded-full mb-3" />
                         <span>Goal</span>
@@ -56,6 +56,17 @@ const DashBoardLayout = () => {
                         <FaHome size={25} className="text-green-500" />
                         Home
                     </NavLink>
+                    {!roleLoading && role === "user" && 
+                     <>
+
+                     </>
+                    }
+
+                    {!roleLoading && role === "member" &&
+                    <>
+                    </>
+                    }
+
 
                     {!roleLoading && role === "admin" &&
                         <>

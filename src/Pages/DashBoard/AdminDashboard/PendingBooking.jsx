@@ -37,11 +37,11 @@ const PendingBooking = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold mb-4 text-center md:text-left">All Booking Requests</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center  text-green-600">All Booking Requests</h2>
 
       {/* 🖥️ Desktop & Tablet Table View */}
       <div className="hidden md:block overflow-x-auto">
-        <table className="table table-zebra w-full">
+        <table className="table w-full bg-green-50 shadow-2xl">
           <thead>
             <tr>
               <th>User</th>
@@ -65,8 +65,8 @@ const PendingBooking = () => {
                 <td>৳{b.totalPrice}</td>
                 <td>
                   <span className={`badge ${
-                    b.status === 'approved' ? 'badge-success' :
-                      b.status === 'pending' ? 'badge-warning' :
+                    b.status === 'approved' ? 'badge-success py-3.5 text-white bg-green-600' :
+                      b.status === 'pending' ? 'badge-warning  text-white bg-yellow-600 py-3.5' :
                         'badge-error'
                   }`}>{b.status}</span>
                 </td>
@@ -75,13 +75,13 @@ const PendingBooking = () => {
                     <>
                       <button
                         onClick={() => handleDecision(b, 'approved', user.email)}
-                        className="btn btn-xs btn-success"
+                        className="btn btn-sm btn-success text-white bg-green-600"
                       >
                         Accept
                       </button>
                       <button
                         onClick={() => handleDecision(b, 'rejected', user.email)}
-                        className="btn btn-xs btn-error"
+                        className="btn btn-sm btn-error text-white bg-red-600"
                       >
                         Reject
                       </button>
