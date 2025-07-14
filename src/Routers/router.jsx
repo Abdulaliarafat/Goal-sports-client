@@ -13,6 +13,7 @@ import PendingBooking from "../Pages/DashBoard/AdminDashboard/PendingBooking";
 import Forbidden from "../SharedPage/Forbedden";
 import AdminRoutes from "../Context/ProtectecdRoutes/AdminRoutes";
 import DeashBoardHomeMain from "../Pages/DeashBoardHome/DeashBoardHomeMain";
+import UserProfile from "../Pages/DashBoard/UserDashboard/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: DeashBoardHomeMain
+      },
+      {
+      path:'userProfile',
+      Component:UserProfile
       },
       {
         path: 'pendingBooking',

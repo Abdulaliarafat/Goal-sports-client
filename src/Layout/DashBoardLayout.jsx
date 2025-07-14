@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import useUserRole from '../Hook/useUserRole';
-import { FaHome, FaHourglassHalf } from 'react-icons/fa';
+import { FaHome, FaHourglassHalf, FaUserCircle } from 'react-icons/fa';
 import logo from '.././assets/download.jpeg'
 
 const DashBoardLayout = () => {
@@ -33,7 +33,9 @@ const DashBoardLayout = () => {
                     <div className="mx-2 flex-1 px-2">Deshboard</div>
                 </div>
                 {/* Page content here */}
-                <Outlet></Outlet>
+              <div className='bg-green-50 md:ml-5 pb-10'> 
+                  <Outlet></Outlet>
+              </div>
             </div>
             <div className="drawer-side ">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -56,15 +58,27 @@ const DashBoardLayout = () => {
                         <FaHome size={25} className="text-green-500" />
                         Home
                     </NavLink>
-                    {!roleLoading && role === "user" && 
-                     <>
+                    {!roleLoading && role === "user" &&
+                        <>
+                            <NavLink
+                                to="/dashboard/userProfile"
+                                className={({ isActive }) =>
+                                    `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                        ? 'text-green-600 underline underline-offset-4'
+                                        : 'hover:text-green-600 text-green-600'
+                                    }`
+                                }
+                            >
+                                <FaUserCircle size={24} className="text-blue-500" />
+                                My Profile
+                            </NavLink>
 
-                     </>
+                        </>
                     }
 
                     {!roleLoading && role === "member" &&
-                    <>
-                    </>
+                        <>
+                        </>
                     }
 
 
