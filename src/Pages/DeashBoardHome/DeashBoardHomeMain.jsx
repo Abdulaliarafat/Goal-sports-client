@@ -1,9 +1,9 @@
 import React from 'react';
 import useUserRole from '../../Hook/useUserRole';
 import Loading from '../../SharedPage/Loading';
-import UserDeshBoard from './UserDeshBoard';
-import MemberDashboard from './MemberDashboard';
-import AdminDashboard from './AdminDashboard';
+import UserDeshBoard from '../DashBoard/UserDashboard/UserDeshBoard';
+import MemberDashboard from '../DashBoard/MemderDashboard/MemberDashboard';
+import AdminDashboard from '../DashBoard/AdminDashboard/AdminDashboard';
 import Forbidden from '../../SharedPage/Forbedden';
 
 
