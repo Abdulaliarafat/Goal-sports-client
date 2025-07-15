@@ -55,6 +55,7 @@ const CourtCard = ({ court }) => {
       bookingDate: format(new Date(bookingDate), 'yyyy-MM-dd'),
       slots: selectedSlots,
       status: 'pending',
+      payment_status:'unpaid',
       pricePerSlot: 500,
       totalPrice: 500 * selectedSlots.length,
       createdAt: new Date().toISOString(),

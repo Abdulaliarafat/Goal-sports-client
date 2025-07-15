@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import useUserRole from '../Hook/useUserRole';
-import { FaHome, FaHourglassHalf, FaUserCircle } from 'react-icons/fa';
+import { FaClipboardCheck, FaHome, FaHourglassHalf, FaUserCircle } from 'react-icons/fa';
 import logo from '.././assets/download.jpeg'
 
 const DashBoardLayout = () => {
@@ -50,14 +50,14 @@ const DashBoardLayout = () => {
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
-                            `flex items-center gap-2 font-medium transition-all text-green-600 text-lg duration-300 ${isActive
+                            `flex items-center gap-2 mb-1 font-medium transition-all text-green-600 text-lg duration-300 ${isActive
                                 ? 'text-green-600 underline underline-offset-4'
                                 : 'hover:text-green-600'
                             }`
                         }
                     >
                         <FaHome size={25} className="text-green-500" />
-                        Home
+                        Back to home
                     </NavLink>
                     {!roleLoading && role === "user" &&
                         <>
@@ -71,7 +71,7 @@ const DashBoardLayout = () => {
                                         }`
                                     }
                                 >
-                                    <FaUserCircle size={24} className="text-blue-500" />
+                                    <FaUserCircle size={24} className="text-green-500" />
                                     My Profile
                                 </NavLink>
                             </li>
@@ -105,11 +105,11 @@ const DashBoardLayout = () => {
                                         }`
                                     }
                                 >
-                                    <FaUserCircle size={24} className="text-blue-500" />
+                                    <FaUserCircle size={24} className="text-green-500" />
                                     My Profile
                                 </NavLink>
                             </li>
-                             <li>
+                            <li>
                                 <NavLink
                                     to="/dashboard/memberPendingBookings"
                                     className={({ isActive }) =>
@@ -123,6 +123,20 @@ const DashBoardLayout = () => {
                                     Pending Booking
                                 </NavLink>
                             </li>
+                           <li>
+                             <NavLink
+                                to="/dashboard/approvedBookings"
+                                className={({ isActive }) =>
+                                    `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                        ? 'text-green-600 underline underline-offset-4'
+                                        : 'hover:text-green-600 text-green-600'
+                                    }`
+                                }
+                            >
+                                <FaClipboardCheck size={24} className="text-blue-500" />
+                                Approved Bookings
+                            </NavLink>
+                           </li>
                         </>
                     }
 

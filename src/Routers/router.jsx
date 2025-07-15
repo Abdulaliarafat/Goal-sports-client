@@ -18,6 +18,7 @@ import MemberProfile from "../Pages/DashBoard/MemderDashboard/MemberProfile";
 import MemberRoutes from "../Context/ProtectecdRoutes/MemberRoutes";
 import UserPendingBookings from "../Pages/DashBoard/UserDashboard/UserPendingBookings";
 import MemberPendingBookings from "../Pages/DashBoard/MemderDashboard/MemberPendingBookings";
+import ApprovedBookings from "../Pages/DashBoard/MemderDashboard/ApprovedBookings";
 
 export const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ export const router = createBrowserRouter([
       {
        path:'memberPendingBookings',
        element:<MemberRoutes><MemberPendingBookings></MemberPendingBookings></MemberRoutes>
+      },
+      {
+        path:'approvedBookings',
+        element:<MemberRoutes><ApprovedBookings></ApprovedBookings></MemberRoutes>
       },
       // admin routes
       {
