@@ -45,7 +45,7 @@ const UserPendingBookings = () => {
       <h2 className="text-2xl font-bold text-center mb-6 text-green-800">Pending Bookings</h2>
 
       {/* ✅ Table view for larger screens */}
-      <div className="hidden md:block overflow-x-auto">
+      <div className="hidden md:block overflow-x-auto rounded-2xl shadow-xl">
         <table className="table w-full">
           <thead className="bg-green-100 text-green-800">
             <tr>
@@ -60,7 +60,7 @@ const UserPendingBookings = () => {
           </thead>
           <tbody>
             {pending.map((b, index) => (
-              <tr key={b._id} className="hover">
+              <tr key={b._id} className="hover:bg-green-100">
                 <td>{index + 1}</td>
                 <td>{b.courtTitle}</td>
                 <td>{b.bookingDate}</td>
@@ -90,10 +90,10 @@ const UserPendingBookings = () => {
             <p><span className="font-medium">Date:</span> {b.bookingDate}</p>
             <p><span className="font-medium">Slots:</span> {b.slots.join(', ')}</p>
             <p><span className="font-medium">Total:</span> ৳{b.totalPrice}</p>
-            <p><span className="font-medium">Status:</span> <span className="badge badge-warning">{b.status}</span></p>
+            <p><span className="font-medium">Status:</span> <span className="badge badge-warning text-white">{b.status}</span></p>
             <button
               onClick={() => handleCancel(b._id)}
-              className="btn btn-sm btn-error mt-2 w-full"
+              className="btn btn-sm btn-error mt-2 w-full text-white"
             >
               Cancel Booking
             </button>

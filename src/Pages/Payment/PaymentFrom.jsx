@@ -106,7 +106,7 @@ const PaymentForm = () => {
             icon: 'success',
             confirmButtonText: 'Go to My Bookings'
           }).then(() => {
-            navigate('/dashboard/memberProfile');
+            navigate('/dashboard/confirmedBookingse');
           });
         }
       }

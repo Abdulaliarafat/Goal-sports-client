@@ -40,8 +40,8 @@ const PendingBooking = () => {
       <h2 className="text-2xl font-bold mb-4 text-center  text-green-600">All Booking Requests</h2>
 
       {/* 🖥️ Desktop & Tablet Table View */}
-      <div className="hidden md:block overflow-x-auto">
-        <table className="table w-full shadow-2xl">
+      <div className="hidden md:block overflow-x-auto rounded-2xl shadow-xl">
+        <table className="table w-full">
           <thead className='bg-green-100 text-green-800'>
             <tr>
               <th>User</th>
@@ -55,7 +55,7 @@ const PendingBooking = () => {
           </thead>
           <tbody>
             {bookings.map((b) => (
-              <tr key={b._id}>
+              <tr key={b._id} className='hover:bg-green-100'>
                 <td>{b.userName}</td>
                 <td>{b.courtTitle}</td>
                 <td>{b.bookingDate}</td>
@@ -105,9 +105,9 @@ const PendingBooking = () => {
             <p><span className="font-medium">Total:</span> ৳{b.totalPrice}</p>
             <p><span className="font-medium">Status:</span>
               <span className={`ml-1 badge ${
-                b.status === 'approved' ? 'badge-success' :
-                  b.status === 'pending' ? 'badge-warning' :
-                    'badge-error'
+                b.status === 'approved' ? 'badge-success text-white' :
+                  b.status === 'pending' ? 'badge-warning text-white' :
+                    'badge-error text-white'
               }`}>{b.status}</span>
             </p>
 
@@ -115,13 +115,13 @@ const PendingBooking = () => {
               <div className="flex gap-2 pt-2">
                 <button
                   onClick={() => handleDecision(b, 'approved', user.email)}
-                  className="btn btn-sm btn-success w-1/2"
+                  className="btn btn-sm btn-success w-1/2 text-white"
                 >
                   Accept
                 </button>
                 <button
                   onClick={() => handleDecision(b, 'rejected', user.email)}
-                  className="btn btn-sm btn-error w-1/2"
+                  className="btn btn-sm btn-error w-1/2 text-white"
                 >
                   Reject
                 </button>

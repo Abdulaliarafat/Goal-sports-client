@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import useUserRole from '../Hook/useUserRole';
-import { FaCheckCircle, FaClipboardCheck, FaHome, FaHourglassHalf, FaUserCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaClipboardCheck, FaHome, FaHourglassHalf, FaMoneyCheckAlt, FaUserCircle, FaUsers } from 'react-icons/fa';
 import logo from '.././assets/download.jpeg'
 
 const DashBoardLayout = () => {
@@ -40,7 +40,7 @@ const DashBoardLayout = () => {
             </div>
             <div className="drawer-side ">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu bg-green-100 text-base-content min-h-full w-80 p-4">
+                <ul className="menu bg-green-100 text-base-content min-h-full w-80 p-4 space-y-2">
                     <Link to="/" className="flex items-center gap-2 text-green-800 font-bold text-3xl mx-auto ">
                         <img src={logo} alt="Goal" className="w-15 h-15 border-3 border-green-500 rounded-full mb-3" />
                         <span>Goal</span>
@@ -97,20 +97,6 @@ const DashBoardLayout = () => {
                         <>
                             <li>
                                 <NavLink
-                                    to="/dashboard/confirmedBookings"
-                                    className={({ isActive }) =>
-                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
-                                            ? 'text-green-600 underline underline-offset-4'
-                                            : 'hover:text-green-600 text-green-600'
-                                        }`
-                                    }
-                                >
-                                    <FaCheckCircle size={24} className="text-green-500" />
-                                    Confirmed Bookings
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
                                     to="/dashboard/memberProfile"
                                     className={({ isActive }) =>
                                         `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
@@ -121,6 +107,20 @@ const DashBoardLayout = () => {
                                 >
                                     <FaUserCircle size={24} className="text-green-500" />
                                     My Profile
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/confirmedBookings"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaCheckCircle size={24} className="text-green-500" />
+                                    Confirmed Bookings
                                 </NavLink>
                             </li>
                             <li>
@@ -151,12 +151,41 @@ const DashBoardLayout = () => {
                                     Approved Bookings
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/paymentHistory"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaMoneyCheckAlt size={24} className="text-green-600" />
+                                    Payment History
+                                </NavLink>
+
+                            </li>
                         </>
                     }
 
 
                     {!roleLoading && role === "admin" &&
                         <>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/adminProfile"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaUserCircle size={24} className="text-green-500" />
+                                    My Profile
+                                </NavLink>
+                            </li>
                             <li>
                                 <NavLink
                                     to="/dashboard/pendingBooking"
@@ -168,10 +197,24 @@ const DashBoardLayout = () => {
                                     }
                                 >
                                     <FaHourglassHalf size={25} className="text-orange-500" />
-                                    Pending Booking
+                                    Booking approval
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/manageAllMembers"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaUsers size={24} className="text-green-500" />
+                                    All Members
+                                </NavLink>
 
+                            </li>
                         </>
                     }
 

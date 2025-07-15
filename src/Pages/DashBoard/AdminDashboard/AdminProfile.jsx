@@ -6,12 +6,12 @@ import useAuth from '../../../Hook/useAuth';
 import Loading from '../../../SharedPage/Loading';
 import Forbidden from '../../../SharedPage/Forbedden';
 
-const MemberProfile = () => {
+const AdminProfile = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
   const { data: userInfo = {}, isLoading } = useQuery({
-    queryKey: ['memberProfile', user?.email],
+    queryKey: ['adminProfile', user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/${user.email}`);
@@ -21,7 +21,7 @@ const MemberProfile = () => {
 
   if (isLoading) return <Loading></Loading>
 
-  if (userInfo.role !== 'member') {
+  if (userInfo.role !== 'admin') {
     return <Forbidden></Forbidden>
   }
 
@@ -30,7 +30,7 @@ const MemberProfile = () => {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-xl  mx-auto mt-10"
+      className="max-w-xl  mx-auto my-5"
     >
       <motion.div
         whileHover={{ scale: 1.03 }}
@@ -46,7 +46,7 @@ const MemberProfile = () => {
           <img
             src={userInfo.photo}
             alt="Profile"
-            className="w-58 h-58 rounded-full object-cover border-4 border-green-500 shadow-md"
+            className="w-48 h-48 rounded-full object-cover border-4 border-green-500 shadow-md"
           />
           <h2 className="text-2xl font-bold mt-3 text-green-700">{userInfo.name}</h2>
           <p className="text-gray-500">{userInfo.email}</p>
@@ -59,10 +59,11 @@ const MemberProfile = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="space-y-5 py-5 text-sm text-gray-700"
+          
         >
-          <p>
-            <span className="font-semibold text-green-600">Role:</span> {userInfo.role}
+          <div className='space-y-2.5'>
+            <p>
+            <span className="font-bold text-green-600">Role:</span> <span className='font-bold text-lg text-green-700'>{userInfo.role}</span>
           </p>
           <p>
             <span className="font-semibold text-green-600">Account Created:</span>{' '}
@@ -72,10 +73,17 @@ const MemberProfile = () => {
             <span className="font-semibold text-green-600">Last Login:</span>{' '}
             {new Date(userInfo.last_log_in).toLocaleString()}
           </p>
+          </div>
+          {/* stack */}
+          <div className='flex gap-5 items-center justify-center my-4'>
+            <div className='rounded-lg p-5 bg-green-400 text-white font-bold text-md'>Total courts :</div>
+            <div className='rounded-lg p-5 bg-green-400 text-white font-bold text-md'>Total users :</div>
+            <div className='rounded-lg p-5 bg-green-400 text-white font-bold text-md'>Total members :</div>
+          </div>
         </motion.div>
       </motion.div>
     </motion.div>
   );
 };
 
-export default MemberProfile;
+export default AdminProfile;

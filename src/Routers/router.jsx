@@ -21,6 +21,9 @@ import MemberPendingBookings from "../Pages/DashBoard/MemderDashboard/MemberPend
 import ApprovedBookings from "../Pages/DashBoard/MemderDashboard/ApprovedBookings";
 import Payment from "../Pages/Payment/Payment";
 import ConfirmedBookings from "../Pages/DashBoard/MemderDashboard/ConfirmedBookings";
+import PaymentHistory from "../Pages/DashBoard/MemderDashboard/PaymentHistory";
+import AdminProfile from "../Pages/DashBoard/AdminDashboard/AdminProfile";
+import ManageAllMembers from "../Pages/DashBoard/AdminDashboard/ManageAllMembers";
 
 export const router = createBrowserRouter([
   {
@@ -59,6 +62,7 @@ export const router = createBrowserRouter([
     element: <PrivateRoutes>
       <DashBoardLayout></DashBoardLayout>
     </PrivateRoutes>,
+    hydrateFallbackElement:<Loading></Loading>,
     children: [
       {
         index: true,
@@ -93,10 +97,22 @@ export const router = createBrowserRouter([
        path:'payment/:id',
        element:<MemberRoutes><Payment></Payment></MemberRoutes>
       },
+      {
+        path:'paymentHistory',
+        element:<MemberRoutes><PaymentHistory></PaymentHistory></MemberRoutes>
+      },
       // admin routes
+      {
+       path:'adminProfile',
+       element:<AdminRoutes><AdminProfile></AdminProfile></AdminRoutes>
+      },
       {
         path: 'pendingBooking',
         element: <AdminRoutes><PendingBooking></PendingBooking></AdminRoutes>
+      },
+      {
+      path:'manageAllMembers',
+      element:<AdminRoutes><ManageAllMembers></ManageAllMembers></AdminRoutes>
       }
     ]
   }

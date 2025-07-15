@@ -34,7 +34,7 @@ const ConfirmedBookings = () => {
       ) : (
         <>
           {/* Desktop Table View */}
-          <div className="hidden md:block overflow-x-auto rounded-lg shadow">
+          <div className="hidden md:block overflow-x-auto  rounded-2xl shadow-xl">
             <table className="min-w-full bg-green-50 divide-y divide-green-200 text-sm md:text-base">
               <thead className="bg-green-100 text-green-700">
                 <tr>
@@ -65,7 +65,7 @@ const ConfirmedBookings = () => {
                     <td className="px-4 py-2 font-medium">৳{b.totalPrice}</td>
                     <td className="px-4 py-2 capitalize">{b.payment_status}</td>
                     <td className="px-4 py-2">
-                      <span className="badge badge-success">{b.status}</span>
+                      <span className="badge badge-success text-white py-4">{b.status}</span>
                     </td>
                   </tr>
                 ))}
