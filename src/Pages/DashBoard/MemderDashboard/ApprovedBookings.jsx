@@ -42,7 +42,8 @@ const ApprovedBookings = () => {
 
   // ✅ Handle Payment Redirect
   const handlePayment = (id) => {
-    navigate(`/payment/${id}`);
+    navigate(`/dashboard/payment/${id}`);
+    console.log(id)
   };
 
   if (isLoading) return <p className="text-center py-10">Loading approved bookings...</p>;

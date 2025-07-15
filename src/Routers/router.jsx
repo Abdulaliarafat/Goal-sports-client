@@ -19,6 +19,7 @@ import MemberRoutes from "../Context/ProtectecdRoutes/MemberRoutes";
 import UserPendingBookings from "../Pages/DashBoard/UserDashboard/UserPendingBookings";
 import MemberPendingBookings from "../Pages/DashBoard/MemderDashboard/MemberPendingBookings";
 import ApprovedBookings from "../Pages/DashBoard/MemderDashboard/ApprovedBookings";
+import Payment from "../Pages/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -81,7 +82,11 @@ export const router = createBrowserRouter([
       },
       {
         path:'approvedBookings',
-        element:<MemberRoutes><ApprovedBookings></ApprovedBookings></MemberRoutes>
+        element:<MemberRoutes><ApprovedBookings></ApprovedBookings></MemberRoutes>,
+      },
+      {
+       path:'payment/:id',
+       element:<MemberRoutes><Payment></Payment></MemberRoutes>
       },
       // admin routes
       {

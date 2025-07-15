@@ -67,7 +67,7 @@ const PendingBooking = () => {
                   <span className={`badge ${
                     b.status === 'approved' ? 'badge-success py-3.5 text-white bg-green-600' :
                       b.status === 'pending' ? 'badge-warning  text-white bg-yellow-600 py-3.5' :
-                        'badge-error'
+                        'badge-success py-3.5 text-white'
                   }`}>{b.status}</span>
                 </td>
                 <td className="space-x-2">
