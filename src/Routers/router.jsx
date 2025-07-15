@@ -20,6 +20,7 @@ import UserPendingBookings from "../Pages/DashBoard/UserDashboard/UserPendingBoo
 import MemberPendingBookings from "../Pages/DashBoard/MemderDashboard/MemberPendingBookings";
 import ApprovedBookings from "../Pages/DashBoard/MemderDashboard/ApprovedBookings";
 import Payment from "../Pages/Payment/Payment";
+import ConfirmedBookings from "../Pages/DashBoard/MemderDashboard/ConfirmedBookings";
 
 export const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ export const router = createBrowserRouter([
       {
         path:'approvedBookings',
         element:<MemberRoutes><ApprovedBookings></ApprovedBookings></MemberRoutes>,
+      },
+      {
+      path:'confirmedBookings',
+      element:<MemberRoutes><ConfirmedBookings></ConfirmedBookings></MemberRoutes>
       },
       {
        path:'payment/:id',
