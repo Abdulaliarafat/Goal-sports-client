@@ -26,6 +26,18 @@ const CourtsPage = () => {
   const [selectedSlots, setSelectedSlots] = useState([]);
   const [bookingDate, setBookingDate] = useState('');
 
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const courtsPerPage = 6;
+
+  // Calculate total pages
+  const totalPages = Math.ceil(courts.length / courtsPerPage);
+
+  // Get current page courts slice
+  const indexOfLastCourt = currentPage * courtsPerPage;
+  const indexOfFirstCourt = indexOfLastCourt - courtsPerPage;
+  const currentCourts = courts.slice(indexOfFirstCourt, indexOfLastCourt);
+
   const handleBookNow = (court) => {
     if (!user) {
       navigate('/login');
@@ -101,7 +113,7 @@ const CourtsPage = () => {
 
       {/* Cards */}
       <div className="grid md:grid-cols-3 gap-6">
-        {courts.map((court) => (
+        {currentCourts.map((court) => (
           <motion.div
             key={court.id}
             className="card bg-green-100 shadow-md rounded-md p-4"
@@ -111,10 +123,9 @@ const CourtsPage = () => {
             viewport={{ once: true }}
           >
             <img
-              src={court.img} 
-              alt={court.title} 
+              src={court.img}
+              alt={court.title}
               className="rounded-md h-48 w-full object-cover"
-              // Fallback image if court.img is missing
               onError={(e) => { e.target.onerror = null; e.target.src = '/default-court-image.jpg'; }}
             />
             <div className="mt-4 space-y-1">
@@ -127,6 +138,37 @@ const CourtsPage = () => {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-center items-center space-x-4 mt-10">
+        <button
+          className="btn btn-sm bg-green-600 text-white disabled:bg-gray-300"
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage((prev) => prev - 1)}
+        >
+          Previous
+        </button>
+
+        {[...Array(totalPages)].map((_, i) => (
+          <button
+            key={i}
+            className={`btn btn-sm ${
+              currentPage === i + 1 ? 'bg-green-800 text-white' : 'bg-green-400 text-white'
+            }`}
+            onClick={() => setCurrentPage(i + 1)}
+          >
+            {i + 1}
+          </button>
+        ))}
+
+        <button
+          className="btn btn-sm bg-green-600 text-white disabled:bg-gray-300"
+          disabled={currentPage === totalPages}
+          onClick={() => setCurrentPage((prev) => prev + 1)}
+        >
+          Next
+        </button>
       </div>
 
       {/* Modal */}
