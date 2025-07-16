@@ -7,7 +7,7 @@ const Promotions = () => {
   const axiosSecure = useAxiosSecure();
 
   // Fetch coupons from backend API
-  const { data: promotions = [], isLoading, error } = useQuery({
+  const { data: Promotions = [], isLoading, error } = useQuery({
     queryKey: ['promotions'],
     queryFn: async () => {
       const res = await axiosSecure.get('/coupon');
@@ -31,7 +31,7 @@ const Promotions = () => {
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 py-20">
-          {promotions.map((promo, index) => (
+          {Promotions.map((promo, index) => (
             <motion.div
               key={promo.code}
               className="bg-white shadow-md border-l-4 border-green-600 rounded-xl p-4 text-left"
