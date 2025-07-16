@@ -8,7 +8,7 @@ const Announcements = () => {
   const { data: announcements = [], isLoading } = useQuery({
     queryKey: ['announcements'],
     queryFn: async () => {
-      const res = await axiosSecure.get('/announcements');
+      const res = await axiosSecure.get('/announcementsMember');
       return res.data;
     },
   });
