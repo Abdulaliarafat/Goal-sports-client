@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import useUserRole from '../Hook/useUserRole';
-import { FaCheckCircle, FaClipboardCheck, FaHome, FaHourglassHalf, FaMoneyCheckAlt, FaUserCircle, FaUsers } from 'react-icons/fa';
+import { FaCheckCircle, FaClipboardCheck, FaHome, FaHourglassHalf, FaMoneyCheckAlt, FaUserCircle, FaUserFriends, FaUsers } from 'react-icons/fa';
 import logo from '.././assets/download.jpeg'
 
 const DashBoardLayout = () => {
@@ -212,6 +212,21 @@ const DashBoardLayout = () => {
                                 >
                                     <FaUsers size={24} className="text-green-500" />
                                     All Members
+                                </NavLink>
+
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/manageAllUser"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaUserFriends size={24} className="text-green-500" />
+                                    All Users
                                 </NavLink>
 
                             </li>

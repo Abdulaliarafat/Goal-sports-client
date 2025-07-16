@@ -14,7 +14,7 @@ const ConfirmedBookings = () => {
       const res = await axiosSecure.get(`/bookings/approved`, {
         params: {
           email: user.email,
-          status: 'confirmed',
+          status: 'confirmed',// go to database*****
         },
       });
       return res.data;
