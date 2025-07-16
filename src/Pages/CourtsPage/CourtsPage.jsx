@@ -1,51 +1,30 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { useQuery } from '@tanstack/react-query';
+import useAuth from '../../Hook/useAuth';
 import Swal from 'sweetalert2';
 import { format } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
-import useAuth from '../../Hook/useAuth';
 import useAxiosSecure from '../../Hook/useAxiosSecure';
-
-import football from '../../assets/football for court.jpeg';
-import badminton from '../../assets/badminton for court.jpeg';
-import squash from '../../assets/squash for court.jpeg';
-import tableTanis from '../../assets/tableTanis for court.jpeg';
-import hockey from '../../assets/hockey for court.jpeg';
-import basketball from '../../assets/basketball for court.jpeg';
-
-const courts = [
-  { id: 1, title: 'Football Field', type: 'Football', img: football },
-  { id: 2, title: 'Badminton Arena', type: 'Badminton', img: badminton },
-  { id: 3, title: 'Squash Court', type: 'Squash', img: squash },
-  { id: 4, title: 'Table Tennis Zone', type: 'Table Tennis', img: tableTanis },
-  { id: 5, title: 'Hockey Rink', type: 'Hockey', img: hockey },
-  { id: 6, title: 'Basketball Court', type: 'Basketball', img: basketball },
-];
-
-const slots = [
-  '08:00 - 09:00 AM',
-  '09:00 - 10:00 AM',
-  '10:00 - 11:00 AM',
-  '03:00 - 04:00 PM',
-  '04:00 - 05:00 PM',
-  '08:00 - 09:00 PM',
-];
 
 const CourtsPage = () => {
   const { user } = useAuth();
-  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
+  // Fetch courts from backend API
+  const { data: courts = [], isLoading } = useQuery({
+    queryKey: ['court'],
+    queryFn: async () => {
+      const res = await axiosSecure.get('/court');
+      return res.data;
+    },
+  });
+
+  const [selectedCourt, setSelectedCourt] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedSlots, setSelectedSlots] = useState([]);
   const [bookingDate, setBookingDate] = useState('');
-  const [selectedCourt, setSelectedCourt] = useState(null);
-
-  const toggleSlot = (slot) => {
-    setSelectedSlots((prev) =>
-      prev.includes(slot) ? prev.filter((s) => s !== slot) : [...prev, slot]
-    );
-  };
 
   const handleBookNow = (court) => {
     if (!user) {
@@ -53,6 +32,14 @@ const CourtsPage = () => {
     } else {
       setSelectedCourt(court);
       setIsOpen(true);
+    }
+  };
+
+  const toggleSlot = (slot) => {
+    if (selectedSlots.includes(slot)) {
+      setSelectedSlots(selectedSlots.filter((s) => s !== slot));
+    } else {
+      setSelectedSlots([...selectedSlots, slot]);
     }
   };
 
@@ -90,12 +77,19 @@ const CourtsPage = () => {
         setBookingDate('');
       }
     } catch (error) {
-      Swal.fire({ icon: 'error', title: 'Booking Failed', text: error.message });
+      Swal.fire({
+        icon: 'error',
+        title: 'Booking Failed',
+        text: error.message,
+      });
     }
   };
 
+  if (isLoading) return <p className="text-center py-10">Loading courts...</p>;
+
   return (
     <div className="px-4 md:px-10 py-20 bg-green-50 min-h-screen">
+      {/* Title */}
       <div className="text-center mb-15">
         <h1 className="text-3xl md:text-4xl font-extrabold text-green-800 mb-2">
           🏟️ Explore Our Premium Sports Courts
@@ -105,6 +99,7 @@ const CourtsPage = () => {
         </p>
       </div>
 
+      {/* Cards */}
       <div className="grid md:grid-cols-3 gap-6">
         {courts.map((court) => (
           <motion.div
@@ -115,7 +110,13 @@ const CourtsPage = () => {
             transition={{ duration: 0.4 }}
             viewport={{ once: true }}
           >
-            <img src={court.img} alt={court.title} className="rounded-md h-48 w-full object-cover" />
+            <img
+              src={court.img} 
+              alt={court.title} 
+              className="rounded-md h-48 w-full object-cover"
+              // Fallback image if court.img is missing
+              onError={(e) => { e.target.onerror = null; e.target.src = '/default-court-image.jpg'; }}
+            />
             <div className="mt-4 space-y-1">
               <h2 className="text-lg font-bold">{court.title}</h2>
               <p className="text-sm text-gray-600">{court.type}</p>
@@ -128,6 +129,7 @@ const CourtsPage = () => {
         ))}
       </div>
 
+      {/* Modal */}
       <AnimatePresence>
         {isOpen && selectedCourt && (
           <motion.div
@@ -145,6 +147,7 @@ const CourtsPage = () => {
               transition={{ duration: 0.3 }}
             >
               <h2 className="text-xl font-semibold mb-2">Booking - {selectedCourt.title}</h2>
+
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
@@ -152,14 +155,17 @@ const CourtsPage = () => {
               >
                 ×
               </button>
+
               <div>
                 <label className="label text-sm">Court Type</label>
                 <input type="text" value={selectedCourt.type} readOnly className="input input-bordered w-full" />
               </div>
+
               <div>
                 <label className="label text-sm">Price per session</label>
                 <input type="text" value="৳ 500" readOnly className="input input-bordered w-full" />
               </div>
+
               <div>
                 <label className="label text-sm">Select Date</label>
                 <input
@@ -170,10 +176,11 @@ const CourtsPage = () => {
                   className="input input-bordered w-full"
                 />
               </div>
+
               <div>
                 <label className="label text-sm">Select Slots</label>
                 <div className="grid grid-cols-2 gap-2">
-                  {slots.map((slot) => (
+                  {(selectedCourt.slots || []).map((slot) => (
                     <label key={slot} className="flex items-center space-x-2">
                       <input
                         type="checkbox"
@@ -186,12 +193,16 @@ const CourtsPage = () => {
                   ))}
                 </div>
               </div>
+
               <div>
                 <p className="text-sm text-gray-700">
                   Total Price: <span className="font-semibold text-green-700">৳{selectedSlots.length * 500}</span>
                 </p>
               </div>
-              <button type="submit" className="btn bg-green-700 text-white w-full">Confirm Booking</button>
+
+              <button type="submit" className="btn bg-green-700 text-white w-full">
+                Confirm Booking
+              </button>
             </motion.form>
           </motion.div>
         )}
