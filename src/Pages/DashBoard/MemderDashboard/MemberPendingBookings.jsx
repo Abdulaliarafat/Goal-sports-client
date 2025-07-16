@@ -13,7 +13,7 @@ const MemberPendingBookings = () => {
     queryKey: ['member-pending-bookings', user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/bookings?email=${user.email}&status=pending`);
+      const res = await axiosSecure.get(`/bookings/Member?email=${user.email}&status=pending`);
       return res.data;
     }
   });
