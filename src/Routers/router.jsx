@@ -25,6 +25,7 @@ import PaymentHistory from "../Pages/DashBoard/MemderDashboard/PaymentHistory";
 import AdminProfile from "../Pages/DashBoard/AdminDashboard/AdminProfile";
 import ManageAllMembers from "../Pages/DashBoard/AdminDashboard/ManageAllMembers";
 import ManageAllUser from "../Pages/DashBoard/AdminDashboard/ManageAllUser";
+import ManageCourts from "../Pages/DashBoard/AdminDashboard/ManageCourts";
 
 export const router = createBrowserRouter([
   {
@@ -118,6 +119,10 @@ export const router = createBrowserRouter([
       {
       path:'manageAllUser',
       element:<AdminRoutes><ManageAllUser></ManageAllUser></AdminRoutes>
+      },
+      {
+        path:'manageCourts',
+        element:<AdminRoutes><ManageCourts></ManageCourts></AdminRoutes>
       }
     ]
   }
