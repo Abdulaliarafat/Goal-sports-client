@@ -53,7 +53,7 @@ const ManageBookings = () => {
 
       {/* 🖥️ Table View (Desktop) */}
       <div className="hidden md:block overflow-x-auto">
-        <table className="table w-full bg-white rounded shadow-md">
+        <table className="table w-full bg-green-50 rounded shadow-md">
           <thead className="bg-green-100 text-green-800">
             <tr >
               <th>#</th>

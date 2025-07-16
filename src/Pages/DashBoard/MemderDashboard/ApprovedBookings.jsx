@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
 import useAuth from '../../../Hook/useAuth';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
+import Loading from '../../../SharedPage/Loading';
 
 const ApprovedBookings = () => {
   const { user } = useAuth();
@@ -46,7 +47,7 @@ const ApprovedBookings = () => {
     console.log(id)
   };
 
-  if (isLoading) return <p className="text-center py-10">Loading approved bookings...</p>;
+  if (isLoading) return <Loading></Loading>
 
   return (
     <div className="p-4 bg-green-50 rounded-md">

@@ -27,6 +27,10 @@ import ManageAllMembers from "../Pages/DashBoard/AdminDashboard/ManageAllMembers
 import ManageAllUser from "../Pages/DashBoard/AdminDashboard/ManageAllUser";
 import ManageCourts from "../Pages/DashBoard/AdminDashboard/ManageCourts";
 import ManageBookings from "../Pages/DashBoard/AdminDashboard/ManageBookings";
+import ManageCoupons from "../Pages/DashBoard/AdminDashboard/ManageCoupons";
+import MakeAnnouncement from "../Pages/DashBoard/AdminDashboard/MakeAnnouncement";
+import Announcements from "../Pages/DashBoard/MemderDashboard/Announcements";
+import AnnouncementsUser from "../Pages/DashBoard/UserDashboard/AnnouncementsUser";
 
 export const router = createBrowserRouter([
   {
@@ -79,6 +83,10 @@ export const router = createBrowserRouter([
         path:'userPendingBookings',
         Component:UserPendingBookings
       },
+      {
+      path:'announcementUser',
+      Component:AnnouncementsUser
+      },
       // member routes
       {
         path: 'memberProfile',
@@ -104,6 +112,10 @@ export const router = createBrowserRouter([
         path:'paymentHistory',
         element:<MemberRoutes><PaymentHistory></PaymentHistory></MemberRoutes>
       },
+      {
+        path:'announcement',
+        element:<MemberRoutes><Announcements></Announcements></MemberRoutes>
+      },
       // admin routes
       {
        path:'adminProfile',
@@ -128,6 +140,14 @@ export const router = createBrowserRouter([
       {
         path:'manageBookings',
         element:<AdminRoutes><ManageBookings></ManageBookings></AdminRoutes>
+      },
+      {
+        path:'manageCoupons',
+        element:<AdminRoutes><ManageCoupons></ManageCoupons></AdminRoutes>
+      },
+      {
+        path:'makeAnnouncement',
+        element:<AdminRoutes><MakeAnnouncement></MakeAnnouncement></AdminRoutes>
       }
     ]
   }

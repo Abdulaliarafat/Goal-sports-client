@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../Hook/useAxiosSecure';
+import Loading from '../../SharedPage/Loading';
 
 const Promotions = () => {
   const axiosSecure = useAxiosSecure();
@@ -14,7 +15,7 @@ const Promotions = () => {
     },
   });
 
-  if (isLoading) return <p className="text-center py-10">Loading promotions...</p>;
+  if (isLoading) return <Loading></Loading>
   if (error) return <p className="text-center py-10 text-red-500">Failed to load promotions.</p>;
 
   return (

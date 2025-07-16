@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import useAuth from '../../../Hook/useAuth';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
+import Loading from '../../../SharedPage/Loading';
 
 const UserPendingBookings = () => {
   const { user } = useAuth();
@@ -38,7 +39,7 @@ const UserPendingBookings = () => {
     }
   };
 
-  if (isLoading) return <p className="text-center py-10">Loading...</p>;
+  if (isLoading) return <Loading></Loading>
 
   return (
     <div className="p-4 bg-green-50 rounded-md">

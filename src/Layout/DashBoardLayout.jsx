@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import useUserRole from '../Hook/useUserRole';
-import { FaCalendarCheck, FaCheckCircle, FaClipboardCheck, FaHome, FaHourglassHalf, FaMoneyCheckAlt, FaTools, FaUserCircle, FaUserFriends, FaUsers } from 'react-icons/fa';
+import { FaBullhorn, FaCalendarCheck, FaCheckCircle, FaClipboardCheck, FaHome, FaHourglassHalf, FaMoneyCheckAlt, FaTicketAlt, FaTools, FaUserCircle, FaUserFriends, FaUsers } from 'react-icons/fa';
 import logo from '.././assets/download.jpeg'
 
 const DashBoardLayout = () => {
@@ -89,7 +89,20 @@ const DashBoardLayout = () => {
                                     Pending Booking
                                 </NavLink>
                             </li>
-
+                            <li>
+                                <NavLink
+                                    to="/dashboard/announcementUser"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaBullhorn size={24} className="text-yellow-500" />
+                                    Announcement
+                                </NavLink>
+                            </li>
                         </>
                     }
 
@@ -165,6 +178,20 @@ const DashBoardLayout = () => {
                                     Payment History
                                 </NavLink>
 
+                            </li>
+                             <li>
+                                <NavLink
+                                    to="/dashboard/announcement"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaBullhorn size={24} className="text-yellow-600" />
+                                    Announcement
+                                </NavLink>
                             </li>
                         </>
                     }
@@ -257,6 +284,35 @@ const DashBoardLayout = () => {
                                 >
                                     <FaCalendarCheck size={24} className="text-green-500" />
                                     Manage Bookings
+                                </NavLink>
+
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/manageCoupons"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaTicketAlt size={24} className="text-green-600" />
+                                    Manage Coupons
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/makeAnnouncement"
+                                    className={({ isActive }) =>
+                                        `flex items-center mt-2 gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaBullhorn size={24} className="text-green-600" />
+                                    Make Announcement
                                 </NavLink>
 
                             </li>
