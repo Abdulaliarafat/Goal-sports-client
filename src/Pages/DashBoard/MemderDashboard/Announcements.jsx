@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
+import Loading from '../../../SharedPage/Loading';
 
 const Announcements = () => {
   const axiosSecure = useAxiosSecure();
@@ -8,13 +9,13 @@ const Announcements = () => {
   const { data: announcements = [], isLoading } = useQuery({
     queryKey: ['announcements'],
     queryFn: async () => {
-      const res = await axiosSecure.get('/announcementsMember');
+      const res = await axiosSecure.get('/announcements');
       return res.data;
     },
   });
 
   if (isLoading) {
-    return <p className="text-center py-10 text-lg text-green-600 font-semibold">Loading Announcements...</p>;
+    return <Loading></Loading>
   }
 
   return (

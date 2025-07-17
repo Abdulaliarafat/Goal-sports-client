@@ -7,7 +7,7 @@ const ConfirmedBookings = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: confirmedBookings = [], isPending } = useQuery({
+  const { data: confirmedBookings = [], isPending,isLoading } = useQuery({
     queryKey: ['confirmedBookings', user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
@@ -21,6 +21,7 @@ const ConfirmedBookings = () => {
     },
   });
 
+  if (isLoading) return <Loading />;
   if (isPending) return <Loading />;
 
   return (

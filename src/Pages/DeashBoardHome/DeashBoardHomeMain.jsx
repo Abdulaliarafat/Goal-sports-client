@@ -1,10 +1,10 @@
 import React from 'react';
 import useUserRole from '../../Hook/useUserRole';
 import Loading from '../../SharedPage/Loading';
-import UserDeshBoard from '../DashBoard/UserDashboard/UserDeshBoard';
-import MemberDashboard from '../DashBoard/MemderDashboard/MemberDashboard';
-import AdminDashboard from '../DashBoard/AdminDashboard/AdminDashboard';
 import Forbidden from '../../SharedPage/Forbedden';
+import UserProfile from '../DashBoard/UserDashboard/UserProfile';
+import MemberProfile from '../DashBoard/MemderDashboard/MemberProfile';
+import AdminProfile from '../DashBoard/AdminDashboard/AdminProfile';
 
 
 const DeashBoardHomeMain = () => {
@@ -13,13 +13,13 @@ const DeashBoardHomeMain = () => {
         return <Loading></Loading>
     }
     if (role === 'user') {
-        return <UserDeshBoard></UserDeshBoard>
+        return <UserProfile></UserProfile>
     }
     else if (role === 'member'){
-        return <MemberDashboard></MemberDashboard>
+        return <MemberProfile></MemberProfile>
     }
     else if(role==='admin'){
-        return <AdminDashboard></AdminDashboard>
+        return <AdminProfile></AdminProfile>
     }
     else{
         return <Forbidden></Forbidden>

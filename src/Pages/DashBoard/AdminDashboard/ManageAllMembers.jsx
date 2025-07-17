@@ -8,7 +8,7 @@ const ManageAllMembers = () => {
   const axiosSecure = useAxiosSecure();
   const [searchTerm, setSearchTerm] = useState('');
 
-  const { data: members = [], isPending, refetch } = useQuery({
+  const { data: members = [], isPending,isLoading, refetch } = useQuery({
     queryKey: ['members'],
     queryFn: async () => {
       const res = await axiosSecure.get('/users', {
@@ -40,6 +40,7 @@ const ManageAllMembers = () => {
     }
   };
 
+  if (isLoading) return <Loading />;
   if (isPending) return <Loading />;
 
   return (

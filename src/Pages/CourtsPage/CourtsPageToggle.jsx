@@ -5,6 +5,7 @@ import CourtsPageStatic from './CourtsPageStatic';
 
 const CourtsPageToggle = () => {
     const{user}=useAuth()
+    
     if(user){
       return <CourtsPage></CourtsPage>
     }

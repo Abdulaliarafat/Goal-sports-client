@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { format } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
 import useAxiosSecure from '../../Hook/useAxiosSecure';
+import Loading from '../../SharedPage/Loading';
 
 const CourtsPage = () => {
   const { user } = useAuth();
@@ -97,7 +98,7 @@ const CourtsPage = () => {
     }
   };
 
-  if (isLoading) return <p className="text-center py-10">Loading courts...</p>;
+  if (isLoading) return <Loading></Loading>
 
   return (
     <div className="px-4 md:px-10 py-20 bg-green-50 min-h-screen">

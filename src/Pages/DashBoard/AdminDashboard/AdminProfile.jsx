@@ -5,12 +5,14 @@ import useAxiosSecure from '../../../Hook/useAxiosSecure';
 import useAuth from '../../../Hook/useAuth';
 import Loading from '../../../SharedPage/Loading';
 import Forbidden from '../../../SharedPage/Forbedden';
+import CountUp from 'react-countup';
+import { FaTableTennis, FaUserCheck, FaUsers } from 'react-icons/fa';
 
 const AdminProfile = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: userInfo = {}, isLoading } = useQuery({
+  const { data: userInfo = {}, isPending } = useQuery({
     queryKey: ['adminProfile', user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
@@ -18,7 +20,16 @@ const AdminProfile = () => {
       return res.data;
     }
   });
+  const { data: stats = {}, isLoading } = useQuery({
+    queryKey: ['dashboardStats'],
+    queryFn: async () => {
+      const res = await axiosSecure.get('/dashboard/stats');
+      return res.data;
+    },
+  });
 
+
+  if (isPending) return <Loading></Loading>
   if (isLoading) return <Loading></Loading>
 
   if (userInfo.role !== 'admin') {
@@ -59,26 +70,75 @@ const AdminProfile = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          
+
         >
           <div className='space-y-2.5'>
             <p>
-            <span className="font-bold text-green-600">Role:</span> <span className='font-bold text-lg text-green-700'>{userInfo.role}</span>
-          </p>
-          <p>
-            <span className="font-semibold text-green-600">Account Created:</span>{' '}
-            {new Date(userInfo.create_at).toLocaleString()}
-          </p>
-          <p>
-            <span className="font-semibold text-green-600">Last Login:</span>{' '}
-            {new Date(userInfo.last_log_in).toLocaleString()}
-          </p>
+              <span className="font-bold text-green-600">Role:</span> <span className='font-bold text-lg text-green-700'>{userInfo.role}</span>
+            </p>
+            <p>
+              <span className="font-semibold text-green-600">Account Created:</span>{' '}
+              {new Date(userInfo.create_at).toLocaleString()}
+            </p>
+            <p>
+              <span className="font-semibold text-green-600">Last Login:</span>{' '}
+              {new Date(userInfo.last_log_in).toLocaleString()}
+            </p>
           </div>
           {/* stack */}
-          <div className='flex gap-5 items-center justify-center my-4'>
-            <div className='rounded-lg p-5 bg-green-400 text-white font-bold text-md'>Total courts :</div>
-            <div className='rounded-lg p-5 bg-green-400 text-white font-bold text-md'>Total users :</div>
-            <div className='rounded-lg p-5 bg-green-400 text-white font-bold text-md'>Total members :</div>
+          <h1 className="text-xl md:text-xl font-extrabold text-center text-green-700 my-2 mt-2">
+            Club Statistics Overview
+          </h1>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-center items-center my-4 px-2">
+            {/* Total Courts */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-green-600 text-white rounded-xl py-6 px-5 flex items-center gap-4 shadow-md"
+            >
+
+              <FaTableTennis className="text-4xl" />
+              <div>
+                <p className="text-sm font-medium">Courts</p>
+                <p className="text-2xl font-bold">
+                  <CountUp end={stats.totalCourts || 0} duration={10} />
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Total Users */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="bg-green-600 text-white rounded-xl py-6 px-5 flex items-center gap-4 shadow-md"
+            >
+              <FaUsers className="text-4xl" />
+              <div>
+                <p className="text-sm font-medium">Users</p>
+                <p className="text-2xl font-bold">
+                  <CountUp end={stats.totalUsers || 0} duration={10} />
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Total Members */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="bg-green-600 text-white rounded-xl py-6 px-5 flex items-center gap-4 shadow-md"
+            >
+              <FaUserCheck className="text-4xl" />
+              <div>
+                <p className="text-sm font-medium">Members</p>
+                <p className="text-2xl font-bold">
+                  <CountUp end={stats.totalMembers || 0} duration={15} />
+                </p>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </motion.div>

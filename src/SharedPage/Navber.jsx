@@ -19,13 +19,13 @@ const Navbar = () => {
             })
     }
     return (
-        <div className="bg-green-200 shadow-md ">
+        <div className="bg-green-200 shadow-md py-1.5">
             <div className="navbar max-w-6xl mx-auto px-4 py-3 justify-between items-center">
 
                 {/* ✅ 4. Logo + Site Name */}
                 <Link to="/" className="flex items-center gap-2 text-green-800 font-bold text-xl">
-                    <img src={logo} alt="Goal" className="w-8 h-8 rounded-full" />
-                    <span>Goal</span>
+                    <img src={logo} alt="Goal" className="w-13 h-13 rounded-full" />
+                    <span className='text-3xl'>Goal</span>
                 </Link>
 
                 {/* ✅ 5. Nav Links */}
@@ -34,7 +34,7 @@ const Navbar = () => {
                         <NavLink
                             to="/"
                             className={({ isActive }) =>
-                                `font-normal mr-4 ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
+                                `font-medium px-3 mr-4 ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
                             }
                         >
                             Home
@@ -43,7 +43,7 @@ const Navbar = () => {
                         <NavLink
                             to="/courtsPage"
                             className={({ isActive }) =>
-                                `font-medium  ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
+                                `font-medium px-3  ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
                             }
                         >
                             Courts
@@ -95,7 +95,7 @@ const Navbar = () => {
                         </div>
                     ) : (
                         // ✅ 9. Login link for guests
-                        <NavLink to="/login" className="btn font-medium  btn-sm bg-green-700 text-white hover:bg-green-800">
+                        <NavLink to="/login" className="btn font-bold   btn-md bg-green-700 text-white hover:bg-green-800">
                             Login
                         </NavLink>
                     )}

@@ -8,7 +8,7 @@ const Promotions = () => {
   const axiosSecure = useAxiosSecure();
 
   // Fetch coupons from backend API
-  const { data: Promotions = [], isLoading, error } = useQuery({
+  const { data: Promotions = [], isLoading, error,isPending } = useQuery({
     queryKey: ['promotions'],
     queryFn: async () => {
       const res = await axiosSecure.get('/coupon');
@@ -16,6 +16,7 @@ const Promotions = () => {
     },
   });
 
+  if (isPending) return <Loading></Loading>
   if (isLoading) return <Loading></Loading>
   if (error) return <p className="text-center py-10 text-red-500">Failed to load promotions.</p>;
 

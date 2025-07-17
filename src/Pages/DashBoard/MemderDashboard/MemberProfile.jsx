@@ -10,7 +10,7 @@ const MemberProfile = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: userInfo = {}, isLoading } = useQuery({
+  const { data: userInfo = {}, isLoading,isPending } = useQuery({
     queryKey: ['memberProfile', user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
@@ -19,6 +19,7 @@ const MemberProfile = () => {
     }
   });
 
+  if (isPending) return <Loading></Loading>
   if (isLoading) return <Loading></Loading>
 
   if (userInfo.role !== 'member') {

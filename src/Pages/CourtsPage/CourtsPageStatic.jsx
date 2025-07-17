@@ -4,6 +4,7 @@ import useAuth from '../../Hook/useAuth';
 import Swal from 'sweetalert2';
 import { format } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
+import Loading from '../../SharedPage/Loading';
 
 const CourtsPageStatic = () => {
   const { user } = useAuth();
@@ -94,7 +95,7 @@ const CourtsPageStatic = () => {
     setBookingDate('');
   };
 
-  if (isLoading) return <p className="text-center py-10">Loading courts...</p>;
+  if (isLoading) return <Loading></Loading>
   if (error) return <p className="text-center py-10 text-red-500">{error}</p>;
 
   return (

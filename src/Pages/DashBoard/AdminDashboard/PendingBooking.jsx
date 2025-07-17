@@ -2,12 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import useAuth from '../../../Hook/useAuth';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
+import Loading from '../../../SharedPage/Loading';
 
 const PendingBooking = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: bookings = [], refetch } = useQuery({
+  const { data: bookings = [],isLoading, refetch } = useQuery({
     queryKey: ['bookings'],
     enabled: !!user,
     queryFn: async () => {
@@ -34,7 +35,9 @@ const PendingBooking = () => {
       refetch();
     }
   };
-
+ if(isLoading){
+  return <Loading></Loading>
+ }
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4 text-center  text-green-600">All Booking Requests</h2>

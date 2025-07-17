@@ -11,7 +11,7 @@ const PaymentHistory = () => {
   const axiosSecure = useAxiosSecure();
   const [layout, setLayout] = useState('table');
 
-  const { data: payments = [], isPending } = useQuery({
+  const { data: payments = [], isPending,isLoading } = useQuery({
     queryKey: ['paymentHistory', user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
@@ -22,6 +22,7 @@ const PaymentHistory = () => {
     },
   });
 
+  if (isLoading) return <Loading />;
   if (isPending) return <Loading />;
 
   return (

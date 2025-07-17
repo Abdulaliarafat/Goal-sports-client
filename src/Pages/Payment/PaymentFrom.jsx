@@ -22,7 +22,7 @@ const PaymentForm = () => {
   const [appliedCoupon, setAppliedCoupon] = useState(null);
 
   // ✅ Booking data
-  const { isPending, data: bookingInfo = {} } = useQuery({
+  const { isPending,isLoading, data: bookingInfo = {} } = useQuery({
     queryKey: ['booking', id],
     queryFn: async () => {
       const res = await axiosSecure.get(`/bookings/approved/${id}`);
@@ -39,6 +39,7 @@ const PaymentForm = () => {
     },
   });
 
+  if (isLoading) return <Loading />;
   if (isPending) return <Loading />;
 
   const baseAmount = bookingInfo.totalPrice;

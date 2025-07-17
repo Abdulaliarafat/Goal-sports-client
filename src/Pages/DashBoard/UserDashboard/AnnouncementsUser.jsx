@@ -1,20 +1,24 @@
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
+import Loading from '../../../SharedPage/Loading';
 
 const AnnouncementsUser = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { data: announcements = [], isLoading } = useQuery({
+  const { data: announcements = [], isLoading ,isPending} = useQuery({
     queryKey: ['announcements'],
     queryFn: async () => {
-      const res = await axiosSecure.get('/announcementsUser');
+      const res = await axiosSecure.get('/announcements');
       return res.data;
     },
   });
 
+  if (isPending) {
+    return <Loading></Loading>;
+  }
   if (isLoading) {
-    return <p className="text-center py-10 text-lg text-green-600 font-semibold">Loading Announcements...</p>;
+    return <Loading></Loading>;
   }
 
   return (

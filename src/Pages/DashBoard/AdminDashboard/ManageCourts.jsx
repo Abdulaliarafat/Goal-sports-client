@@ -3,6 +3,7 @@ import { useState} from 'react';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../Hook/useAxiosSecure';
 import { useForm } from 'react-hook-form';
+import Loading from '../../../SharedPage/Loading';
 
 const ManageCourts = () => {
     const axiosSecure = useAxiosSecure();
@@ -81,7 +82,9 @@ const ManageCourts = () => {
         }
     };
 
-    if (isLoading) return <p className="text-center py-10">Loading courts...</p>;
+    if (isLoading){
+        return <Loading></Loading>
+    }
 
     return (
         <div className="p-4 mt-2 ">

@@ -71,7 +71,9 @@ const MakeAnnouncement = () => {
       audience: announcement.audience,
     });
   };
-if (isLoading) return <Loading />;
+if (isLoading) {
+  return <Loading />
+}
   return (
     <div className="p-4 space-y-6">
       {/* 🔵 Form */}
