@@ -1,0 +1,12 @@
+[
+  { "_id": "64b78a001", "code": "GOAL5", "name": "Goal Getter", "discount": 5, "quantity": 10, "expiresAt": "2025-07-25" },
+  { "_id": "64b78a002", "code": "KICK10", "name": "Kick Start", "discount": 10, "quantity": 7, "expiresAt": "2025-07-25" },
+  { "_id": "64b78a003", "code": "RALLY15", "name": "Rally Master", "discount": 15, "quantity": 5, "expiresAt": "2025-07-25" },
+  { "_id": "64b78a004", "code": "ACE20", "name": "Ace Shot", "discount": 20, "quantity": 3, "expiresAt": "2025-07-25" },
+  { "_id": "64b78a005", "code": "DRIBBLE7", "name": "Dribble Deal", "discount": 7, "quantity": 8, "expiresAt": "2025-07-25" },
+  { "_id": "64b78a006", "code": "SLAM8", "name": "Slam Dunk", "discount": 8, "quantity": 6, "expiresAt": "2025-07-25" },
+  { "_id": "64b78a007", "code": "NETTT9", "name": "Net Gain", "discount": 9, "quantity": 4, "expiresAt": "2025-07-25" },
+  { "_id": "64b78a008", "code": "TURF12", "name": "Turf Time", "discount": 12, "quantity": 9, "expiresAt": "2025-07-25" },
+  { "_id": "64b78a009", "code": "POWER6", "name": "Power Play", "discount": 6, "quantity": 5, "expiresAt": "2025-07-25" },
+  { "_id": "64b78a00a", "code": "SMASH11", "name": "Smash Serve", "discount": 11, "quantity": 2, "expiresAt": "2025-07-25" }
+]

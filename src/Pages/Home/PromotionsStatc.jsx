@@ -1,22 +1,18 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from '../../Hook/useAxiosSecure';
 import Loading from '../../SharedPage/Loading';
 
-const Promotions = () => {
-  const axiosSecure = useAxiosSecure();
-
-  // Fetch coupons from backend API
+const PromotionsStatc = () => {
   const { data: Promotions = [], isLoading, error } = useQuery({
     queryKey: ['promotions'],
     queryFn: async () => {
-      const res = await axiosSecure.get('/coupon');
-      return res.data;
+      const res = await fetch('/Coupuon.json'); // ✅ Corrected path
+      if (!res.ok) throw new Error('Failed to fetch local JSON');
+      return res.json();
     },
   });
 
-  if (isLoading) return <Loading></Loading>
+  if (isLoading) return <Loading />;
   if (error) return <p className="text-center py-10 text-red-500">Failed to load promotions.</p>;
 
   return (
@@ -34,7 +30,7 @@ const Promotions = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 py-20">
           {Promotions.map((promo, index) => (
             <motion.div
-              key={promo.code}
+              key={promo._id}
               className="bg-white shadow-md border-l-4 border-green-600 rounded-xl p-4 text-left"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -57,4 +53,4 @@ const Promotions = () => {
   );
 };
 
-export default Promotions;
+export default PromotionsStatc;

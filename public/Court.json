@@ -1,0 +1,122 @@
+[
+  {
+    "_id": "68774251e1380b5146e6e7ce",
+    "title": "Football Field",
+    "type": "Footballs",
+    "img": "https://i.ibb.co/QFqNVZsc/football-for-court.jpg",
+    "slots": [
+      "08:00 - 09:00 AM",
+      "09:00 - 10:00 AM",
+      "03:00 - 04:00 PM",
+      "08:00 - 09:00 PM"
+    ]
+  },
+  {
+    "_id": "68774251e1380b5146e6e7cf",
+    "title": "Badminton Arena",
+    "type": "Badminton",
+    "img": "https://i.ibb.co/xqqDYg0V/badminton-for-court.jpg",
+    "slots": [
+      "09:00 - 10:00 AM",
+      "10:00 - 11:00 AM",
+      "04:00 - 05:00 PM",
+      "05:00 - 06:00 PM"
+    ]
+  },
+  {
+    "_id": "68774251e1380b5146e6e7d0",
+    "title": "Squash Court",
+    "type": "Squash",
+    "img": "https://i.ibb.co/Gfcw4Q71/squash-for-court.jpg",
+    "slots": [
+      "08:00 - 09:00 AM",
+      "10:00 - 11:00 AM",
+      "04:00 - 05:00 PM",
+      "06:00 - 07:00 PM"
+    ]
+  },
+  {
+    "_id": "68774251e1380b5146e6e7d1",
+    "title": "Table Tennis Zone",
+    "type": "Table Tennis",
+    "img": "https://i.ibb.co/FkdWf1CR/table-Tanis-for-court.jpg",
+    "slots": [
+      "09:00 - 10:00 AM",
+      "03:00 - 04:00 PM",
+      "08:00 - 09:00 PM",
+      "09:00 - 10:00 PM"
+    ]
+  },
+  {
+    "_id": "68774251e1380b5146e6e7d2",
+    "title": "Hockey Rink",
+    "type": "Hockey",
+    "img": "https://i.ibb.co/1GSVVjLY/hockey-for-court.jpg",
+    "slots": [
+      "08:00 - 09:00 AM",
+      "10:00 - 11:00 AM",
+      "03:00 - 04:00 PM",
+      "05:00 - 06:00 PM"
+    ]
+  },
+  {
+    "_id": "68774251e1380b5146e6e7d3",
+    "title": "Basketball Court",
+    "type": "Basketball",
+    "img": "https://i.ibb.co/HpNfzgxP/basketball-for-court.jpg",
+    "slots": [
+      "09:00 - 10:00 AM",
+      "10:00 - 11:00 AM",
+      "08:00 - 09:00 PM",
+      "09:00 - 10:00 PM"
+    ]
+  },
+  {
+    "_id": "687763ecc065c178e64694a2",
+    "title": "National game",
+    "type": "Kabaddi",
+    "img": "https://i.ibb.co/hFGk0MDQ/Kabaddi-court.jpg",
+    "slots": [
+      "08:00 - 09:00 AM",
+      "09:00 - 10:00 AM",
+      "03:00 - 04:00 PM",
+      "04:00 - 05:00 PM"
+    ]
+  },
+  {
+    "_id": "6877b4bcdf429a7f08497c4f",
+    "title": "Team sport played",
+    "type": "Ice hocky",
+    "img": "https://i.ibb.co/8gvpvrrr/ice-hocky.jpg",
+    "slots": [
+      "08:00 - 09:00 AM",
+      "09:00 - 10:00 AM",
+      "10:00 - 11:00 AM",
+      "05:00 - 06:00 PM"
+    ]
+  },
+  {
+    "_id": "6877b5f79975e279ed9ae0ac",
+    "title": "Carrom play",
+    "type": "Carrom",
+    "img": "https://i.ibb.co/23T6npSL/download-1.jpg",
+    "slots": [
+      "09:00 - 10:00 AM",
+      "10:00 - 11:00 AM",
+      "03:00 - 04:00 PM",
+      "08:00 - 09:00 PM"
+    ]
+  },
+  {
+    "_id": "6877b65a9975e279ed9ae0ad",
+    "title": "Carrom play",
+    "type": "Carrom ",
+    "img": "https://i.ibb.co/VfHVyFG/images-1.jpg",
+    "slots": [
+      "08:00 - 09:00 AM",
+      "09:00 - 10:00 AM",
+      "04:00 - 05:00 PM",
+      "06:00 - 07:00 PM"
+    ]
+  }
+]

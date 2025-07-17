@@ -31,6 +31,7 @@ import ManageCoupons from "../Pages/DashBoard/AdminDashboard/ManageCoupons";
 import MakeAnnouncement from "../Pages/DashBoard/AdminDashboard/MakeAnnouncement";
 import Announcements from "../Pages/DashBoard/MemderDashboard/Announcements";
 import AnnouncementsUser from "../Pages/DashBoard/UserDashboard/AnnouncementsUser";
+import CourtsPageToggle from "../Pages/CourtsPage/CourtsPageToggle";
 
 export const router = createBrowserRouter([
   {
@@ -42,7 +43,7 @@ export const router = createBrowserRouter([
       { index: true, Component: Home },
       {
         path: 'courtsPage',
-        Component: CourtsPage
+        Component: CourtsPageToggle
       },
       {
         path: 'forbedden',
