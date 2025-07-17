@@ -41,7 +41,7 @@ const AdminProfile = () => {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-xl  mx-auto my-5"
+      className="max-w-xl  mx-auto my-2"
     >
       <motion.div
         whileHover={{ scale: 1.03 }}
@@ -57,7 +57,7 @@ const AdminProfile = () => {
           <img
             src={userInfo.photo}
             alt="Profile"
-            className="w-48 h-48 rounded-full object-cover border-4 border-green-500 shadow-md"
+            className="w-38 h-38 rounded-full object-cover border-4 border-green-500 shadow-md"
           />
           <h2 className="text-2xl font-bold mt-3 text-green-700">{userInfo.name}</h2>
           <p className="text-gray-500">{userInfo.email}</p>
@@ -86,23 +86,22 @@ const AdminProfile = () => {
             </p>
           </div>
           {/* stack */}
-          <h1 className="text-xl md:text-xl font-extrabold text-center text-green-700 my-2 mt-2">
+          <h1 className="text-xl md:text-xl font-extrabold text-center text-green-700 mb-6 mt-5">
             Club Statistics Overview
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-center items-center my-4 px-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-4 sm:px-6 lg:px-8">
             {/* Total Courts */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-green-600 text-white rounded-xl py-6 px-5 flex items-center gap-4 shadow-md"
+              className="bg-green-600 text-white rounded-2xl p-5 flex items-center gap-4 shadow-lg md:w-full w-55  mx-auto"
             >
-
-              <FaTableTennis className="text-4xl" />
+              <FaTableTennis className="text-4xl sm:text-5xl" />
               <div>
-                <p className="text-sm font-medium">Courts</p>
-                <p className="text-2xl font-bold">
+                <p className="text-base sm:text-lg font-semibold">Courts</p>
+                <p className="text-2xl sm:text-3xl font-bold">
                   <CountUp end={stats.totalCourts || 0} duration={10} />
                 </p>
               </div>
@@ -113,12 +112,12 @@ const AdminProfile = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="bg-green-600 text-white rounded-xl py-6 px-5 flex items-center gap-4 shadow-md"
+              className="bg-green-600 text-white rounded-2xl p-5 flex items-center gap-4 shadow-lg md:w-full w-55  mx-auto"
             >
-              <FaUsers className="text-4xl" />
+              <FaUsers className="text-4xl sm:text-5xl" />
               <div>
-                <p className="text-sm font-medium">Users</p>
-                <p className="text-2xl font-bold">
+                <p className="text-base sm:text-lg font-semibold">Users</p>
+                <p className="text-2xl sm:text-3xl font-bold">
                   <CountUp end={stats.totalUsers || 0} duration={10} />
                 </p>
               </div>
@@ -129,12 +128,12 @@ const AdminProfile = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-green-600 text-white rounded-xl py-6 px-5 flex items-center gap-4 shadow-md"
+              className="bg-green-600 text-white rounded-2xl p-5 flex items-center gap-4 shadow-lg md:w-full w-55 mx-auto"
             >
-              <FaUserCheck className="text-4xl" />
+              <FaUserCheck className="text-4xl sm:text-5xl" />
               <div>
-                <p className="text-sm font-medium">Members</p>
-                <p className="text-2xl font-bold">
+                <p className="text-base sm:text-lg font-semibold">Members</p>
+                <p className="text-2xl sm:text-3xl font-bold">
                   <CountUp end={stats.totalMembers || 0} duration={15} />
                 </p>
               </div>

@@ -35,7 +35,7 @@ const Footer = () => {
           </NavLink>
 
           <NavLink
-            to="/courts"
+            to="/courtsPage"
             className={({ isActive }) =>
               `transition-all hover:text-green-600 ${isActive ? 'underline rounded' : ''}`
             }
