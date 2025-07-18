@@ -7,13 +7,11 @@ import { format } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
 import Loading from '../../SharedPage/Loading';
 import useAxios from '../../Hook/useAxios';
-import useAxiosSecure from '../../Hook/useAxiosSecure';
 
 const CourtsPage = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const useAxious=useAxios()
-  const axiosSecure=useAxiosSecure()
   // Fetch courts from backend API
   const { data: courts = [], isLoading } = useQuery({
     queryKey: ['court'],
@@ -79,7 +77,7 @@ const CourtsPage = () => {
     };
 
     try {
-      const res = await axiosSecure.post('/bookings', booking);
+      const res = await useAxious.post('/bookings', booking);
       if (res.data.insertedId) {
         Swal.fire({
           icon: 'success',
