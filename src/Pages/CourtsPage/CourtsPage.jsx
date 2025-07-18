@@ -77,7 +77,7 @@ const CourtsPage = () => {
     };
 
     try {
-      const res = await axiosSecure.post('/bookings', booking);
+      const res = await useAxious.post('/bookings', booking);
       if (res.data.insertedId) {
         Swal.fire({
           icon: 'success',
