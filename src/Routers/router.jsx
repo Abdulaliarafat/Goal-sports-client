@@ -6,7 +6,6 @@ import AuthLayout from "../Layout/AuthLayout";
 import LogIn from "../Authentication/Login/LogIn";
 import Register from "../Authentication/Register/Register";
 import Loading from "../SharedPage/Loading";
-import CourtsPage from "../Pages/CourtsPage/CourtsPage";
 import PrivateRoutes from "../Context/ProtectecdRoutes/PrivateRoutes";
 import DashBoardLayout from "../Layout/DashBoardLayout";
 import PendingBooking from "../Pages/DashBoard/AdminDashboard/PendingBooking";
@@ -31,7 +30,7 @@ import ManageCoupons from "../Pages/DashBoard/AdminDashboard/ManageCoupons";
 import MakeAnnouncement from "../Pages/DashBoard/AdminDashboard/MakeAnnouncement";
 import Announcements from "../Pages/DashBoard/MemderDashboard/Announcements";
 import AnnouncementsUser from "../Pages/DashBoard/UserDashboard/AnnouncementsUser";
-import CourtsPageToggle from "../Pages/CourtsPage/CourtsPageToggle";
+import CourtsPage from "../Pages/CourtsPage/CourtsPage";
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +42,7 @@ export const router = createBrowserRouter([
       { index: true, Component: Home },
       {
         path: 'courtsPage',
-        Component: CourtsPageToggle
+        Component: CourtsPage
       },
       {
         path: 'forbedden',

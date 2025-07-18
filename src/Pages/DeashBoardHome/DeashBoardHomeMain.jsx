@@ -15,13 +15,13 @@ const DeashBoardHomeMain = () => {
     if (role === 'user') {
         return <UserProfile></UserProfile>
     }
-    else if (role === 'member'){
+    else if (role === 'member') {
         return <MemberProfile></MemberProfile>
     }
-    else if(role==='admin'){
+    else if (role === 'admin') {
         return <AdminProfile></AdminProfile>
     }
-    else{
+    else {
         return <Forbidden></Forbidden>
     }
 };

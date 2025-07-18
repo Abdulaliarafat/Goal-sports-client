@@ -2,7 +2,7 @@ import React from 'react';
 import Banner from './Banner/Banner';
 import AboutClub from './AboutClub';
 import Location from './Location';
-import PromotionToggole from './PromotionToggole';
+import Promotions from './Promotions';
 
 const Home = () => {
     return (
@@ -10,7 +10,7 @@ const Home = () => {
         <Banner></Banner>
         <AboutClub></AboutClub>
         <Location></Location>
-        <PromotionToggole></PromotionToggole>
+       <Promotions></Promotions>
         </div>
     );
 };

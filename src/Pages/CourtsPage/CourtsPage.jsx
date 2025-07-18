@@ -5,19 +5,18 @@ import useAuth from '../../Hook/useAuth';
 import Swal from 'sweetalert2';
 import { format } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
-import useAxiosSecure from '../../Hook/useAxiosSecure';
 import Loading from '../../SharedPage/Loading';
+import useAxios from '../../Hook/useAxios';
 
 const CourtsPage = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const axiosSecure = useAxiosSecure();
-
+  const useAxious=useAxios()
   // Fetch courts from backend API
   const { data: courts = [], isLoading } = useQuery({
     queryKey: ['court'],
     queryFn: async () => {
-      const res = await axiosSecure.get('/court');
+      const res = await useAxious.get('/court');
       return res.data;
     },
   });
@@ -154,9 +153,8 @@ const CourtsPage = () => {
         {[...Array(totalPages)].map((_, i) => (
           <button
             key={i}
-            className={`btn btn-sm ${
-              currentPage === i + 1 ? 'bg-green-800 text-white' : 'bg-green-400 text-white'
-            }`}
+            className={`btn btn-sm ${currentPage === i + 1 ? 'bg-green-800 text-white' : 'bg-green-400 text-white'
+              }`}
             onClick={() => setCurrentPage(i + 1)}
           >
             {i + 1}

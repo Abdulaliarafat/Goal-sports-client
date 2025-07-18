@@ -1,17 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from '../../Hook/useAxiosSecure';
 import Loading from '../../SharedPage/Loading';
+import useAxios from '../../Hook/useAxios';
 
 const Promotions = () => {
-  const axiosSecure = useAxiosSecure();
+  const useAxious = useAxios()
 
   // Fetch coupons from backend API
   const { data: Promotions = [], isLoading, error,isPending } = useQuery({
     queryKey: ['promotions'],
     queryFn: async () => {
-      const res = await axiosSecure.get('/coupon');
+      const res = await useAxious.get('/coupon');
       return res.data;
     },
   });

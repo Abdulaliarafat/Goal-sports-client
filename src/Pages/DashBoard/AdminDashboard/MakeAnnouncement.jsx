@@ -71,9 +71,9 @@ const MakeAnnouncement = () => {
       audience: announcement.audience,
     });
   };
-if (isLoading) {
-  return <Loading />
-}
+  if (isLoading) {
+    return <Loading />
+  }
   return (
     <div className="p-4 space-y-6">
       {/* 🔵 Form */}
@@ -103,8 +103,14 @@ if (isLoading) {
           className="select select-bordered w-full"
         >
           <option>All Members</option>
-          <option>Only Football</option>
-          <option>Only Badminton</option>
+          <option>Only Table Tennis</option>
+          <option>Only 	Hockey</option>
+          <option>Only Footballs</option>
+          <option>Only Squash</option>
+          <option>Only 	Kabaddi</option>
+          <option>Only Ice hocky</option>
+          <option>Only 	Chasse</option>
+          <option>Only Carrom</option>
         </select>
         <button type="submit" className="btn md:w-100 mx-auto block bg-green-600 text-white ">
           {editId ? 'Update' : 'Post Announcements'}

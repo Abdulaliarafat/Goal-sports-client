@@ -1,6 +1,6 @@
 # 🥅 Goal - Sports Indoor Club Management System
 
-**Live Site:** [https://goal-sports-club.netlify.app](https://goal-sports-club.netlify.app)
+**Live Site:** https://assignment-12-clinet.netlify.app/
 
 ### 👨‍💼 Admin Credentials:
 - **Email:** arafat@gmail.com  

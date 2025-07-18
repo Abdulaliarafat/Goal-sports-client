@@ -31,7 +31,7 @@ const MemberProfile = () => {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-xl  mx-auto mt-10"
+      className="max-w-xl  mx-auto my-5"
     >
       <motion.div
         whileHover={{ scale: 1.03 }}

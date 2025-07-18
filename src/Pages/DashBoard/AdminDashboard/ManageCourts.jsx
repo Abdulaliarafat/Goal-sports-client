@@ -68,22 +68,27 @@ const ManageCourts = () => {
             const res = await axiosSecure.put(`/court/${editCourt._id}`, formattedData);
             if (res.data.modifiedCount > 0) {
                 Swal.fire('Updated!', 'Court information has been updated.', 'success');
-                setEditCourt(null);
                 reset();
-                refetch();
+                setEditCourt(null);
+                 refetch();
+               
             }
         } else {
             const res = await axiosSecure.post('/court', formattedData);
             if (res.data.insertedId) {
                 Swal.fire('Success!', 'New court added.', 'success');
                 reset();
+                setEditCourt(null)
                 refetch();
             }
         }
     };
 
     if (isLoading){
-        return <Loading></Loading>
+        return <Loading>
+
+
+        </Loading>
     }
 
     return (
