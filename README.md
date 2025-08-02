@@ -12,17 +12,17 @@ Goal is a modern, full-featured indoor club management system built with the MER
 ---
 # Getting Started Locally
 
-# git clone https://github.com/Abdulaliarafat/BitClock-client.git
+# git clone https://github.com/Abdulaliarafat/Goal-sports-client.git
  
  --
-# cd BitClock-client
+# cd Goal-sports-client
 # npm install
 # npm run dev
 
 
 ## 🌍 Live Site
 
-🔗 **Frontend:** [https://assignment-12-clinet.netlify.app/](https://assignment-12-clinet.netlify.app/)  
+🔗 **Frontend:** [https://goal-sports-booking.netlify.app/](https://goal-sports-booking.netlify.app/)  
 🔗 **Backend:** [https://assignment-12-server-red-theta.vercel.app/](https://assignment-12-server-red-theta.vercel.app/) <!-- change if needed -->
 🔗 **Backend:** [https://github.com/Programming-Hero-Web-Course4/b11a12-client-side-Abdulaliarafat](https://github.com/Programming-Hero-Web-Course4/b11a12-client-side-Abdulaliarafat) <!-- change if needed -->
 
