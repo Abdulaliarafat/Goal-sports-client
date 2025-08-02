@@ -19,7 +19,7 @@ const Navbar = () => {
             })
     }
     return (
-        <div className="bg-green-200 shadow-md py-1.5">
+        <div className="bg-green-200 shadow-md py-1">
             <div className="navbar max-w-6xl mx-auto px-4 py-3 justify-between items-center">
 
                 {/* ✅ 4. Logo + Site Name */}
@@ -57,10 +57,10 @@ const Navbar = () => {
                             {/* ✅ 7. Profile picture button */}
                             <button
                                 onClick={toggleDropdown}
-                                className="rounded-full w-10 h-10 border border-green-300 overflow-hidden"
+                                className="rounded-full w-13 h-13 border border-green-300 overflow-hidden"
                             >
                                 {user.photoURL ? (
-                                    <img src={user.photoURL} alt="profile" className="w-full h-full object-cover" />
+                                    <img src={user.photoURL} alt="profile" className="w-full h-full object-cover border-2 border-green-700 hover:bg-green-300 hover:border-3 rounded-full" />
                                 ) : (
                                     <FaUserCircle className="text-2xl text-green-600 mx-auto" />
                                 )}

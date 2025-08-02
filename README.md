@@ -1,100 +1,107 @@
 # 🥅 Goal - Sports Indoor Club Management System
 
-**Live Site:** https://assignment-12-clinet.netlify.app/
+Goal is a modern, full-featured indoor club management system built with the MERN stack. It allows users to explore and book sports courts, apply coupons, manage their bookings, and make secure payments, while admins can manage the full system including courts, members, announcements, and more.
 
-### 👨‍💼 Admin Credentials:
-- **Email:** arafat@gmail.com  
-- **Password:** 123456
+----
+
+## 🖼️ Screenshot
+
+![HobbyHub Screenshot](https://i.ibb.co/39kN4Mtq/Whats-App-Image-1.jpg) <!-- Replace with actual image URL -->
+
+---
+---
+# Getting Started Locally
+
+# git clone https://github.com/Abdulaliarafat/BitClock-client.git
+ 
+ --
+# cd BitClock-client
+# npm install
+# npm run dev
+
+
+## 🌍 Live Site
+
+🔗 **Frontend:** [https://assignment-12-clinet.netlify.app/](https://assignment-12-clinet.netlify.app/)  
+🔗 **Backend:** [https://assignment-12-server-red-theta.vercel.app/](https://assignment-12-server-red-theta.vercel.app/) <!-- change if needed -->
+🔗 **Backend:** [https://github.com/Programming-Hero-Web-Course4/b11a12-client-side-Abdulaliarafat](https://github.com/Programming-Hero-Web-Course4/b11a12-client-side-Abdulaliarafat) <!-- change if needed -->
 
 ---
 
-## 🔥 Overview
+## 👨‍💼 Admin Credentials
 
-**Goal** is a feature-rich, responsive indoor sports club management system built with MERN stack technologies. It handles court bookings, member management, announcements, coupon promotions, and more with a user-friendly experience for admins, users, and members.
+- **Email:** `arafat@gmail.com`  
+- **Password:** `123456`
 
 ---
+## 📄 Pages Overview
 
-## 🚀 Key Features
+| Page | Description |
+|------|-------------|
+| `/` | Home page with rotating banner, about section, location map, and featured coupons |
+| `/courts` | Browse and book indoor courts (with filtering and slot/time selection) |
+| `/login` | Secure login for users and admins |
+| `/register` | User registration with Firebase |
+| `/dashboard` | Role-based dashboards (User / Member / Admin) |
+| `*` | Custom 404 Page Not Found |
 
-✅ **User Authentication & Role-Based Access**  
-- Firebase auth with login/register
-- Conditional nav and route protection
+---
+---
 
-✅ **Responsive Home Page**  
-- Rotating banner
-- About the club section
-- Google map location
-- Featured promotions
+## 🔥 Key Features
 
-✅ **Court Booking System**  
-- View all courts with time slots, type, and price  
-- Logged-in users can book courts  
-- Admin approval required before confirmation  
-- Book multiple slots at once
-
-✅ **Smart Booking Flow**  
-- Users see pending bookings  
-- Members see approved bookings and can pay  
-- After payment → booking becomes confirmed
-
-✅ **Payment Integration**  
-- Stripe for secure payments  
-- Dynamic price updates with coupon codes  
-- Confirmation message on success
-
-✅ **Dashboard Access**  
-- User Dashboard: profile, pending bookings, announcements  
-- Member Dashboard: profile, pending + approved + confirmed bookings, payments  
-- Admin Dashboard: manage courts, users, members, coupons, and bookings
-
-✅ **Admin Control Panel**  
-- View/manage all bookings  
-- Approve/reject requests  
-- Manage courts (add/edit/delete)  
-- Create, update, and remove coupons  
-- Post club-wide announcements
-
-✅ **Coupon System**  
-- Auto-expiry (10-day validation)
-- Discount applied dynamically at checkout
-
-✅ **Announcements**  
-- Admin can create/edit/delete announcements  
-- Visible in all dashboards
-
-✅ **Pagination & Layout Toggling**  
-- Courts page: 6 cards per page  
-- Table/list toggle in Payment History  
-- Pagination for tables with 10 items per page
+- 🔐 Firebase authentication (Register/Login)
+- 📍 Role-based route protection (User, Member, Admin)
+- 🏟️ View & Book courts with time slot selection
+- ⏳ Booking approval system (Pending → Approved → Confirmed)
+- 💳 Secure payment via Stripe
+- 🎟️ Coupon system with auto-expiry and discount
+- 📣 Announcements from admin for all users
+- 📊 Admin dashboard to manage courts, bookings, members, coupons
+- 🧾 Payment history and booking summaries for users
+- 📱 Responsive layout with modern UI/UX
 
 ---
 
 ## 🧪 Tech Stack
 
-- **Frontend:** React, React Router, Tailwind CSS, DaisyUI, Framer Motion  
-- **Backend:** Node.js, Express.js, MongoDB  
-- **Authentication:** Firebase  
-- **Payment:** Stripe  
-- **State Management:** React Query  
-- **Deployment:** Netlify (Client), Render/VerceL (Server)
+| Layer         | Technology Used | Badges |
+|---------------|------------------|--------|
+| **Frontend**  | React, React Router, Tailwind CSS, DaisyUI | ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-0EA5E9?style=for-the-badge&logo=tailwind-css&logoColor=white) ![DaisyUI](https://img.shields.io/badge/DaisyUI-%23F4D03F?style=for-the-badge&logo=tailwind-css&logoColor=white) |
+| **Backend**   | Node.js, Express.js, MongoDB | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) |
+| **Auth**      | Firebase | ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black) |
+| **Payments**  | Stripe | ![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white) |
+| **State Mgt** | React Query | ![React Query](https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white) |
+| **UI Effects**| Framer Motion, SweetAlert2 | ![Framer Motion](https://img.shields.io/badge/Framer_Motion-EF476F?style=for-the-badge&logo=framer&logoColor=white) ![SweetAlert2](https://img.shields.io/badge/SweetAlert2-FF5C8D?style=for-the-badge&logo=alert&logoColor=white) |
+| **Deploy**    | Netlify (Frontend), Vercel/Render (Backend) | ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white) ![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white) |
+
+
+## 🔐 Authentication & Security
+
+- 🔒 Firebase-based Email/Password Authentication
+- 👤 Role-based Authorization (User, Member, Admin)
+- 🔐 Secure Route Protection with `PrivateRoute` and `AdminRoute`
+- 🚫 Automatic redirection for unauthorized access
+- 🛡️ Backend verifies roles before executing sensitive actions
+- 💬 SweetAlert2 prompts for confirmations and alerts
 
 ---
+## 📦 Dependencies
 
-## 🧭 How to Use
-
-1. Visit the live site
-2. Register or login as a user (or use admin credentials)
-3. Browse courts and make bookings
-4. Admin can manage the entire system from dashboard
-
----
-
-## 🙌 Author
-
-**Abdul Ali Arafat**  
-Email: abdulaliarafat@gmail.com  
-Portfolio: [abdulaliarafat.netlify.app](https://abdulaliarafat.netlify.app)  
-GitHub: [github.com/Abdulaliarafat](https://github.com/Abdulaliarafat)
-
----
-
+```bash
+"@headlessui/react"
+"@heroicons/react"
+"@tanstack/react-query"
+"axios"
+"daisyui"
+"firebase"
+"framer-motion"
+"react"
+"react-dom"
+"react-hook-form"
+"react-icons"
+"react-router-dom"
+"react-toastify"
+"swiper"
+"vite"
+"TanStackQuery"
