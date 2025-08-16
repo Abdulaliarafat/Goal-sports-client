@@ -29,12 +29,12 @@ const Navbar = () => {
                 </Link>
 
                 {/* ✅ 5. Nav Links */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
                     <div className='md:mr-10 '>
                         <NavLink
                             to="/"
                             className={({ isActive }) =>
-                                `font-medium px-3 mr-4 ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
+                                `font-medium px-3 ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
                             }
                         >
                             Home
@@ -47,6 +47,14 @@ const Navbar = () => {
                             }
                         >
                             Courts
+                        </NavLink>
+                        <NavLink
+                            to="/reviwe"
+                            className={({ isActive }) =>
+                                `font-medium px-3  ${isActive ? 'bg-green-600 text-white p-1.5 rounded' : ''}`
+                            }
+                        >
+                            Feedback
                         </NavLink>
 
                     </div>

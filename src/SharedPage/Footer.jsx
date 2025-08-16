@@ -42,6 +42,14 @@ const Footer = () => {
           >
             Courts
           </NavLink>
+          <NavLink
+            to="/reviwe"
+            className={({ isActive }) =>
+              `transition-all hover:text-green-600 ${isActive ? 'underline rounded' : ''}`
+            }
+          >
+            Feedback
+          </NavLink>
 
           {user ? (
             <NavLink

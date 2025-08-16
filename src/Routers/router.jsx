@@ -31,6 +31,7 @@ import MakeAnnouncement from "../Pages/DashBoard/AdminDashboard/MakeAnnouncement
 import Announcements from "../Pages/DashBoard/MemderDashboard/Announcements";
 import AnnouncementsUser from "../Pages/DashBoard/UserDashboard/AnnouncementsUser";
 import CourtsPage from "../Pages/CourtsPage/CourtsPage";
+import Review from "../Pages/Review/Review";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: 'courtsPage',
         Component: CourtsPage
+      },
+      {
+        path: 'reviwe',
+        Component: Review
       },
       {
         path: 'forbedden',
@@ -69,7 +74,7 @@ export const router = createBrowserRouter([
     element: <PrivateRoutes>
       <DashBoardLayout></DashBoardLayout>
     </PrivateRoutes>,
-    hydrateFallbackElement:<Loading></Loading>,
+    hydrateFallbackElement: <Loading></Loading>,
     children: [
       {
         index: true,
@@ -80,74 +85,74 @@ export const router = createBrowserRouter([
         Component: UserProfile
       },
       {
-        path:'userPendingBookings',
-        Component:UserPendingBookings
+        path: 'userPendingBookings',
+        Component: UserPendingBookings
       },
       {
-      path:'announcementUser',
-      Component:AnnouncementsUser
+        path: 'announcementUser',
+        Component: AnnouncementsUser
       },
       // member routes
       {
         path: 'memberProfile',
-        element:<MemberRoutes><MemberProfile></MemberProfile></MemberRoutes>
+        element: <MemberRoutes><MemberProfile></MemberProfile></MemberRoutes>
       },
       {
-       path:'memberPendingBookings',
-       element:<MemberRoutes><MemberPendingBookings></MemberPendingBookings></MemberRoutes>
+        path: 'memberPendingBookings',
+        element: <MemberRoutes><MemberPendingBookings></MemberPendingBookings></MemberRoutes>
       },
       {
-        path:'approvedBookings',
-        element:<MemberRoutes><ApprovedBookings></ApprovedBookings></MemberRoutes>,
+        path: 'approvedBookings',
+        element: <MemberRoutes><ApprovedBookings></ApprovedBookings></MemberRoutes>,
       },
       {
-      path:'confirmedBookings',
-      element:<MemberRoutes><ConfirmedBookings></ConfirmedBookings></MemberRoutes>
+        path: 'confirmedBookings',
+        element: <MemberRoutes><ConfirmedBookings></ConfirmedBookings></MemberRoutes>
       },
       {
-       path:'payment/:id',
-       element:<MemberRoutes><Payment></Payment></MemberRoutes>
+        path: 'payment/:id',
+        element: <MemberRoutes><Payment></Payment></MemberRoutes>
       },
       {
-        path:'paymentHistory',
-        element:<MemberRoutes><PaymentHistory></PaymentHistory></MemberRoutes>
+        path: 'paymentHistory',
+        element: <MemberRoutes><PaymentHistory></PaymentHistory></MemberRoutes>
       },
       {
-        path:'announcement',
-        element:<MemberRoutes><Announcements></Announcements></MemberRoutes>
+        path: 'announcement',
+        element: <MemberRoutes><Announcements></Announcements></MemberRoutes>
       },
       // admin routes
       {
-       path:'adminProfile',
-       element:<AdminRoutes><AdminProfile></AdminProfile></AdminRoutes>
+        path: 'adminProfile',
+        element: <AdminRoutes><AdminProfile></AdminProfile></AdminRoutes>
       },
       {
         path: 'pendingBooking',
         element: <AdminRoutes><PendingBooking></PendingBooking></AdminRoutes>
       },
       {
-      path:'manageAllMembers',
-      element:<AdminRoutes><ManageAllMembers></ManageAllMembers></AdminRoutes>
+        path: 'manageAllMembers',
+        element: <AdminRoutes><ManageAllMembers></ManageAllMembers></AdminRoutes>
       },
       {
-      path:'manageAllUser',
-      element:<AdminRoutes><ManageAllUser></ManageAllUser></AdminRoutes>
+        path: 'manageAllUser',
+        element: <AdminRoutes><ManageAllUser></ManageAllUser></AdminRoutes>
       },
       {
-        path:'manageCourts',
-        element:<AdminRoutes><ManageCourts></ManageCourts></AdminRoutes>
+        path: 'manageCourts',
+        element: <AdminRoutes><ManageCourts></ManageCourts></AdminRoutes>
       },
       {
-        path:'manageBookings',
-        element:<AdminRoutes><ManageBookings></ManageBookings></AdminRoutes>
+        path: 'manageBookings',
+        element: <AdminRoutes><ManageBookings></ManageBookings></AdminRoutes>
       },
       {
-        path:'manageCoupons',
-        element:<AdminRoutes><ManageCoupons></ManageCoupons></AdminRoutes>
+        path: 'manageCoupons',
+        element: <AdminRoutes><ManageCoupons></ManageCoupons></AdminRoutes>
       },
       {
-        path:'makeAnnouncement',
-        element:<AdminRoutes><MakeAnnouncement></MakeAnnouncement></AdminRoutes>
+        path: 'makeAnnouncement',
+        element: <AdminRoutes><MakeAnnouncement></MakeAnnouncement></AdminRoutes>
       }
     ]
   }
