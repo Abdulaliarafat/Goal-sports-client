@@ -6,6 +6,7 @@ import Promotions from './Promotions';
 import ActivitiesSection from './ActivitiesSection';
 import OffersSection from './OffersSection';
 import CoachesSection from './CoachesSection';
+import EventsSection from './EventsSection';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
         <ActivitiesSection></ActivitiesSection>
         <OffersSection></OffersSection>
         <CoachesSection></CoachesSection>
+        <EventsSection></EventsSection>
        <Promotions></Promotions>
         </div>
     );
