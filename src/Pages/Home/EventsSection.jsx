@@ -1,5 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns';
+import { motion } from 'framer-motion';
 
 const eventsData = [
   { id: 1, title: 'Summer Football Cup', date: '2025-08-20', location: 'Main Field', img: 'https://i.ibb.co.com/Jwx426s2/images.jpg' },
@@ -15,13 +16,21 @@ const EventsSection = () => {
   return (
     <section className="bg-green-50 py-16" id="events">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-12">
+        <motion.h2
+        initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-12">
           🎉 Upcoming Events
-        </h2>
+        </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-          {eventsData.map((event) => (
-            <div key={event.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition">
+          {eventsData.map((event,index) => (
+            <motion.div
+            initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.05 }}
+            key={event.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition">
               <img
                 src={event.img}
                 alt={event.title}
@@ -32,7 +41,7 @@ const EventsSection = () => {
                 <p className="text-gray-600 mb-1">{format(new Date(event.date), 'MMMM d, yyyy')}</p>
                 <p className="text-green-600 font-semibold">{event.location}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

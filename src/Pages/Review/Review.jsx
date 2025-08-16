@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const reviews = [
     {
@@ -143,33 +144,40 @@ const Reviews = () => {
     return (
         <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                <h2 className="text-3xl md:text-4xl font-extrabold text-green-800 mb-10 text-center">
+                <h2 className="text-3xl md:text-4xl font-extrabold text-green-800 mb-12 text-center">
                     What Our Members Say
                 </h2>
+
                 <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
-                    {reviews.map(({ id, name, role, review, rating, img }) => (
-                        <div
+                    {reviews.map(({ id, name, role, review, rating, img }, index) => (
+                        <motion.div
                             key={id}
-                            className="p-6 rounded-2xl shadow-md bg-white hover:shadow-lg transition"
+                            className="p-6 rounded-2xl shadow-lg bg-white hover:shadow-2xl transition-transform transform hover:scale-105"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.05, duration: 0.5 }}
                         >
                             <div className="flex items-center gap-4 mb-4">
                                 <img
                                     src={img}
                                     alt={name}
-                                    className="w-14 h-14 rounded-full border-2 border-indigo-500"
+                                    className="w-14 h-14 rounded-full border-2 border-green-600"
                                 />
                                 <div>
                                     <h3 className="font-semibold text-lg">{name}</h3>
                                     <p className="text-sm text-gray-500">{role}</p>
                                 </div>
                             </div>
+
                             <p className="text-gray-700 mb-4">{review}</p>
+
                             <div className="flex text-yellow-500">
                                 {[...Array(rating)].map((_, i) => (
                                     <FaStar key={i} />
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

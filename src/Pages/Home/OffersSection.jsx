@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FaGift, FaPercentage, FaStar } from 'react-icons/fa';
 
 const offersData = [
@@ -78,12 +79,19 @@ const OffersSection = () => {
   return (
     <section className="bg-green-50 py-16" id="offers">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-10">
           🎁 Current Offers & Deals
-        </h2>
+        </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {offersData.map((offer) => (
-            <div
+          {offersData.map((offer, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.05 }}
               key={offer.id}
               className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition"
             >
@@ -95,7 +103,7 @@ const OffersSection = () => {
                   {offer.badge}
                 </span>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

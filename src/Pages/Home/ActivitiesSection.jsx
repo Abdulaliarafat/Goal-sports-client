@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { motion } from 'framer-motion';
 import useAxios from '../../Hook/useAxios';
 import Loading from '../../SharedPage/Loading';
 
@@ -20,12 +21,19 @@ const ActivitiesSection = () => {
     return (
         <section className="bg-green-50 py-16" id="activities">
             <div className="max-w-7xl mx-auto px-4">
-                <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-10">
+                <motion.h2
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-10">
                     🏅 Our Activities & Facilities
-                </h2>
+                </motion.h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    {courts.map((court) => (
-                        <div
+                    {courts.map((court, index) => (
+                        <motion.div
+                            initial={{ opacity: 0, y: 15 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.01 }}
                             key={court._id}
                             className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition"
                         >
@@ -37,7 +45,7 @@ const ActivitiesSection = () => {
                                 Type: {court.type} <br />
                                 Available Slots: {court.slots.join(', ')}
                             </p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
