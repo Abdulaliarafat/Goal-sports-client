@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import useAxios from '../../Hook/useAxios';
 import Loading from '../../SharedPage/Loading';
+import { Link } from 'react-router';
 
 
 
@@ -45,6 +46,7 @@ const ActivitiesSection = () => {
                                 Type: {court.type} <br />
                                 Available Slots: {court.slots.join(', ')}
                             </p>
+                            <Link to='/courtsPage' className='bg-green-600 text-white font-semibold px-1.5 py-1 mt-4 rounded'>See more</Link>
                         </motion.div>
                     ))}
                 </div>

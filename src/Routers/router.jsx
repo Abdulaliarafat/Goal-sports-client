@@ -33,6 +33,7 @@ import AnnouncementsUser from "../Pages/DashBoard/UserDashboard/AnnouncementsUse
 import CourtsPage from "../Pages/CourtsPage/CourtsPage";
 import Review from "../Pages/Review/Review";
 import AdminOverview from "../Pages/DeashBoardHome/AdminOverview";
+import MemberOverview from "../Pages/DeashBoardHome/MemberOverview";
 
 export const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
       {
         path: 'memberProfile',
         element: <MemberRoutes><MemberProfile></MemberProfile></MemberRoutes>
+      },
+      {
+       path:'memberOverview',
+       element:<MemberRoutes><MemberOverview></MemberOverview></MemberRoutes>
       },
       {
         path: 'memberPendingBookings',

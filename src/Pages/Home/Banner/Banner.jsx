@@ -12,6 +12,7 @@ import squish from '../../../assets/squash.jpg';
 import tableTanis from '../../../assets/table-tennis-1208378_960_720.jpg';
 import hockey from '../../../assets/hocky.jpg';
 import basketball from '../../../assets/basketball.jpg';
+import { Link } from 'react-router';
 
 // ✅ 1. Courts data
 const courts = [
@@ -85,9 +86,9 @@ const Banner = () => {
                             >
                                 <h2 className="text-2xl md:text-4xl font-bold mb-4">{court.title}</h2>
                                 <p className="mb-6 text-sm md:text-base">{court.description}</p>
-                                <button className="btn btn-sm md:btn-md bg-green-700 text-white hover:bg-green-800 transition">
+                                <Link to='/courtsPage' className="btn btn-sm md:btn-md bg-green-700 text-white hover:bg-green-800 transition">
                                     View Court
-                                </button>
+                                </Link>
                             </motion.div>
                         </div>
                     </SwiperSlide>

@@ -25,7 +25,7 @@ const Navbar = () => {
                 {/* ✅ 4. Logo + Site Name */}
                 <Link to="/" className="flex items-center gap-2 text-green-800 font-bold text-xl">
                     <img src={logo} alt="Goal" className="w-13 h-13 rounded-full" />
-                    <span className='text-lg md:text-3xl'>Goal</span>
+                    <span className='hidden md:inline text-lg md:text-3xl'>Goal</span>
                 </Link>
 
                 {/* ✅ 5. Nav Links */}
