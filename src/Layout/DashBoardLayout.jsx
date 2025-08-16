@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import useUserRole from '../Hook/useUserRole';
-import { FaBullhorn, FaCalendarCheck, FaCheckCircle, FaClipboardCheck, FaHome, FaHourglassHalf, FaMoneyCheckAlt, FaTicketAlt, FaTools, FaUserCircle, FaUserFriends, FaUsers } from 'react-icons/fa';
+import { FaBullhorn, FaCalendarCheck, FaCheckCircle, FaClipboardCheck, FaHome, FaHourglassHalf, FaMoneyCheckAlt, FaTachometerAlt, FaTicketAlt, FaTools, FaUserCircle, FaUserFriends, FaUsers } from 'react-icons/fa';
 import logo from '.././assets/download.jpeg'
 
 const DashBoardLayout = () => {
@@ -122,6 +122,20 @@ const DashBoardLayout = () => {
                                     My Profile
                                 </NavLink>
                             </li>
+                             <li>
+                                <NavLink
+                                    to="/dashboard/memberOverview"
+                                    className={({ isActive }) =>
+                                        `flex items-center  gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaTachometerAlt size={24} className="text-green-500" />
+                                    Member Overview
+                                </NavLink>
+                            </li>
                             <li>
                                 <NavLink
                                     to="/dashboard/confirmedBookings"
@@ -179,7 +193,7 @@ const DashBoardLayout = () => {
                                 </NavLink>
 
                             </li>
-                             <li>
+                            <li>
                                 <NavLink
                                     to="/dashboard/announcement"
                                     className={({ isActive }) =>
@@ -211,6 +225,20 @@ const DashBoardLayout = () => {
                                 >
                                     <FaUserCircle size={24} className="text-green-500" />
                                     My Profile
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/adminOverview"
+                                    className={({ isActive }) =>
+                                        `flex items-center  gap-2 font-medium transition-all duration-300 text-lg ${isActive
+                                            ? 'text-green-600 underline underline-offset-4'
+                                            : 'hover:text-green-600 text-green-600'
+                                        }`
+                                    }
+                                >
+                                    <FaTachometerAlt size={24} className="text-green-500" />
+                                    Admin Overview
                                 </NavLink>
                             </li>
                             <li>

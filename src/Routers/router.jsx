@@ -32,6 +32,7 @@ import Announcements from "../Pages/DashBoard/MemderDashboard/Announcements";
 import AnnouncementsUser from "../Pages/DashBoard/UserDashboard/AnnouncementsUser";
 import CourtsPage from "../Pages/CourtsPage/CourtsPage";
 import Review from "../Pages/Review/Review";
+import AdminOverview from "../Pages/DeashBoardHome/AdminOverview";
 
 export const router = createBrowserRouter([
   {
@@ -125,6 +126,10 @@ export const router = createBrowserRouter([
       {
         path: 'adminProfile',
         element: <AdminRoutes><AdminProfile></AdminProfile></AdminRoutes>
+      },
+      {
+        path:'adminOverview',
+        element:<AdminRoutes><AdminOverview></AdminOverview></AdminRoutes>
       },
       {
         path: 'pendingBooking',

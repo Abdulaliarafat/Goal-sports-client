@@ -1,10 +1,10 @@
 import React from 'react';
 import useUserRole from '../../Hook/useUserRole';
 import Loading from '../../SharedPage/Loading';
-import Forbidden from '../../SharedPage/Forbedden';
 import UserProfile from '../DashBoard/UserDashboard/UserProfile';
-import MemberProfile from '../DashBoard/MemderDashboard/MemberProfile';
-import AdminProfile from '../DashBoard/AdminDashboard/AdminProfile';
+import AdminOverview from './AdminOverview';
+import MemberOverview from './MemberOverview';
+
 
 
 const DeashBoardHomeMain = () => {
@@ -16,13 +16,10 @@ const DeashBoardHomeMain = () => {
         return <UserProfile></UserProfile>
     }
     else if (role === 'member') {
-        return <MemberProfile></MemberProfile>
+        return <MemberOverview></MemberOverview>
     }
     else if (role === 'admin') {
-        return <AdminProfile></AdminProfile>
-    }
-    else {
-        return <Forbidden></Forbidden>
+        return <AdminOverview></AdminOverview>
     }
 };
 
