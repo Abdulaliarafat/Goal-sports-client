@@ -7,7 +7,7 @@ const eventsData = [
   { id: 3, title: 'Tennis Tournament', date: '2025-09-01', location: 'Tennis Court 1', img: 'https://i.ibb.co.com/gLz3WbYv/download-3.jpg' },
   { id: 4, title: 'Fitness Challenge', date: '2025-09-05', location: 'Gym Area', img: 'https://i.ibb.co.com/hRDnJbzv/download-5.jpg' },
   { id: 5, title: 'Youth Football Camp', date: '2025-09-10', location: 'Main Field', img: 'https://i.ibb.co.com/5hb5Rnzs/download-6.jpg' },
-  { id: 6, title: 'Tennis Workshop', date: '2025-09-15', location: 'Tennis Court 2', img: 'https://i.ibb.co/event6.jpg' },
+  { id: 6, title: 'Tennis Workshop', date: '2025-09-15', location: 'Tennis Court 2', img: 'https://i.ibb.co.com/rKjqgFtk/download-7.jpgg' },
   { id: 7, title: 'Annual Club Meet', date: '2025-09-20', location: 'Club Hall', img: 'https://i.ibb.co/event7.jpg' },
 ];
 
