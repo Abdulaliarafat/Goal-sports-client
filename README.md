@@ -22,7 +22,7 @@ Goal is a modern, full-featured indoor club management system built with the MER
 
 ## 🌍 Live Site
 
-🔗 **Frontend:** [https://assignment-12-clinet.netlify.app/](https://assignment-12-clinet.netlify.app/)  
+🔗 **Frontend:** [https://goal-sports-booking.netlify.app/](https://goal-sports-booking.netlify.app/)  
 🔗 **Backend:** [https://assignment-12-server-red-theta.vercel.app/](https://assignment-12-server-red-theta.vercel.app/) <!-- change if needed -->
 <!-- change if needed -->
 
