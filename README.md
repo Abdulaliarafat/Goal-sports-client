@@ -12,10 +12,10 @@ Goal is a modern, full-featured indoor club management system built with the MER
 ---
 # Getting Started Locally
 
-# git clone https://github.com/Abdulaliarafat/BitClock-client.git
+# git clone https://github.com/Abdulaliarafat/Goal-sports-client
  
  --
-# cd BitClock-client
+# cd Goal-sports-client
 # npm install
 # npm run dev
 
